@@ -21,6 +21,7 @@ export default function Note({ title, date, content, tag }) {
 }
 
 const NoteStyled = styled.section`
+  width: 90vw;
   padding: 10px 20px 20px;
   box-shadow: 0 10px 10px #0002;
   background: #f4f4f4;
