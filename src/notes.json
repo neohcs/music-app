@@ -1,0 +1,26 @@
+[
+  {
+    "title": "Lorem Ipsum",
+    "content": "There is something already written in this note. Click on the arrows to see the more info on the note and get the option to edit it.",
+"tag": [
+      "javascript",
+      "basics"
+]
+},
+{
+  "title": "Dolor Sit Amet",
+   "content": "There is something already written in this note. Click on the arrows to see the more info on the note and get the option to edit it.",
+"tag": [
+    "javascript",
+    "basics"
+  ]
+},
+{
+  "title": "Sed Diam Voluptua",
+  "content": "There is something already written in this note. Click on the arrows to see the more info on the note and get the option to edit it.",
+"tag": [
+    "javascript",
+    "basics"
+  ]
+}
+]
