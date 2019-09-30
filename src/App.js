@@ -8,8 +8,13 @@ export default function App() {
   return (
     <React.Fragment>
       <Scroller>
-        {notes.map(note => (
-          <Note />
+        {notes.map((note, index) => (
+          <Note
+            key={index}
+            title={note.title}
+            content={note.content}
+            tag={note.tag}
+          />
         ))}
       </Scroller>
     </React.Fragment>
