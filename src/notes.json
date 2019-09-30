@@ -1,26 +1,20 @@
 [
   {
     "title": "Lorem Ipsum",
+    "date": "5 minutes ago",
     "content": "There is something already written in this note. Click on the arrows to see the more info on the note and get the option to edit it.",
-"tag": [
-      "javascript",
-      "basics"
-]
-},
-{
-  "title": "Dolor Sit Amet",
-   "content": "There is something already written in this note. Click on the arrows to see the more info on the note and get the option to edit it.",
-"tag": [
-    "javascript",
-    "basics"
-  ]
-},
-{
-  "title": "Sed Diam Voluptua",
-  "content": "There is something already written in this note. Click on the arrows to see the more info on the note and get the option to edit it.",
-"tag": [
-    "javascript",
-    "basics"
-  ]
-}
+    "tag": "started"
+  },
+  {
+    "title": "Dolor Sit Amet",
+    "date": "16 hours ago",
+    "content": "There is something already written in this note. Click on the arrows to see the more info on the note and get the option to edit it.",
+    "tag": "advanced"
+  },
+  {
+    "title": "Sed Diam Voluptua",
+    "date": "09/26/2019",
+    "content": "There is something already written in this note. Click on the arrows to see the more info on the note and get the option to edit it.",
+    "tag": "completed"
+  }
 ]

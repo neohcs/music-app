@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-
 import Note from './Note'
 import notes from './notes.json'
 
@@ -12,6 +11,7 @@ export default function App() {
           <Note
             key={index}
             title={note.title}
+            date={note.date}
             content={note.content}
             tag={note.tag}
           />
