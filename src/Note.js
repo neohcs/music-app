@@ -1,11 +1,11 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
 import Tag from './Tag'
 
 Note.propTypes = {
   title: PropTypes.string,
-  date: PropTypes.string,
+  date: PropTypes.string, //update this to dynamic date
   content: PropTypes.string
 }
 
@@ -22,6 +22,9 @@ export default function Note({ title, date, content, tag }) {
 
 const NoteStyled = styled.section`
   width: 90vw;
+  box-sizing: border-box;
+  font-family: Lucida Grande, Lucida Sans Unicode, Lucida Sans, Geneva, Verdana,
+    sans-serif;
   padding: 10px 20px 20px;
   box-shadow: 0 10px 10px #0002;
   background: #f4f4f4;
@@ -39,8 +42,11 @@ const TitleStyled = styled.h1`
 `
 
 const ContentStyled = styled.p`
-  height: 40px;
-  overflow-y: scroll;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
   font-size: 16px;
   color: #54abbc;
+  word-wrap: break-word;
 `
