@@ -1,26 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import styled from 'styled-components/macro'
+import Note from './Note'
+import notes from './notes.json'
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <React.Fragment>
+      <Scroller>
+        {notes.map((note, index) => (
+          <Note
+            key={index}
+            title={note.title}
+            date={note.date}
+            content={note.content}
+            tag={note.tag}
+          />
+        ))}
+      </Scroller>
+    </React.Fragment>
+  )
 }
 
-export default App;
+const Scroller = styled.div`
+  display: grid;
+  gap: 20px;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  padding: 20px 10px;
+`
