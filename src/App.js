@@ -1,30 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components/macro'
+import Header from './Header'
+import Page from './Page'
+import SearchBar from './SearchBar'
+import TagFilter from './TagFilter'
 import Note from './Note'
 import notes from './notes.json'
 
-export default function App() {
+export default function App({ onSelectTag }) {
   return (
     <React.Fragment>
-      <Scroller>
-        {notes.map((note, index) => (
-          <Note
-            key={index}
-            title={note.title}
-            date={note.date}
-            content={note.content}
-            tag={note.tag}
-          />
-        ))}
-      </Scroller>
+      <Header></Header>
+      <Page></Page>
     </React.Fragment>
   )
 }
-
-const Scroller = styled.div`
-  display: grid;
-  gap: 20px;
-  overflow-y: auto;
-  scroll-behavior: smooth;
-  padding: 20px 10px;
-`
