@@ -1,13 +1,14 @@
 import React from 'react'
 import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
-import Tag from './Tag'
 import SearchBar from './SearchBar'
 import TagFilter from './TagFilter'
 import Note from './Note'
 import notes from './notes.json'
 
 export default function Page() {
+  /*const [selectedTag, setSelectedTag] = useState()*/
+
   return (
     <PageStyled>
       <SearchBar></SearchBar>
@@ -25,6 +26,10 @@ export default function Page() {
       </ScrollerStyled>
     </PageStyled>
   )
+}
+
+function onSelectTag(notes, selectedTag) {
+  return notes.filter(note => note.tag.includes(selectedTag))
 }
 
 const PageStyled = styled.div`
