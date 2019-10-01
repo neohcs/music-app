@@ -43,7 +43,7 @@ const TitleStyled = styled.h1`
 
 const ContentStyled = styled.p`
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   overflow: hidden;
   font-size: 16px;
