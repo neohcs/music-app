@@ -19,6 +19,6 @@ const SearchBarStyled = styled.input`
   border-radius: 7px;
   border: none;
   height: 20px;
-  margin-left: 30%;
+  margin-left: 100px; /* anders lösen */
   margin-bottom: 10px;
 `
