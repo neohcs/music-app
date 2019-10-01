@@ -33,6 +33,7 @@ const NoteStyled = styled.section`
 const DateStyled = styled.div`
   display: block;
   float: right;
+  margin-right: -10px;
   font-size: 12px;
   color: #3997a0;
 `

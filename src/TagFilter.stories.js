@@ -8,7 +8,7 @@ export default {
 
 export const tagFilter = () => (
   <TagFilter
-    tags={['one', 'two', 'three']}
+    tags={['started', 'advanced', 'completed']}
     onCLick={action('onClick')}
   ></TagFilter>
 )

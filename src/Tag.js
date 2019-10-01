@@ -18,14 +18,4 @@ const TagStyled = styled.div`
   color: #54abbc;
   border-radius: 7px;
   margin-right: 10px;
-
-  &:active {
-    background: #48c0cb;
-    color: #f6ddab;
-  }
-
-  &--selected {
-    background: #48c0cb;
-    color: #f6ddab;
-  }
 `
