@@ -13,11 +13,12 @@ export default function App() {
       return prev
     }, new Set())
   )
-
+  /*
   const FullListPage = filterListByTag('FullList')
   const StartedListPage = filterListByTag('StartedList', 'started')
   const AdvancedListPage = filterListByTag('AdvancedList', 'advanced')
   const CompletedListPage = filterListByTag('CompletedList', 'completed')
+*/
 
   return (
     <>
