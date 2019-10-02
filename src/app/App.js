@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import Header from '../common/Header'
 import Page from '../common/Page'
+import NotePage from '../notes/NotePage'
 import notesData from '../notes.json'
 
 export default function App() {
@@ -14,14 +15,10 @@ export default function App() {
     }, new Set())
   )
 
-  //  const FullList = filterListByTag('AllListPage')
-  // const StartedList = filterListByTag('StartedListPage', 'started')
-  //const AdvancedList = filterListByTag('AdvancedListPage', 'advanced')
-  //const CompletedList = filterListByTag('CompletedListPage', 'completed')
-
-  function selectTag(clickedTag) {
-    setSelectedTag(clickedTag)
-  }
+  /*const FullListPage = filterListByTag('FullList')
+  const StartedListPage = filterListByTag('StartedList', 'started')
+  const AdvancedListPage = filterListByTag('AdvancedList', 'advanced')
+  const CompletedListPage = filterListByTag('CompletedList', 'completed')*/
 
   return (
     <>
@@ -35,18 +32,55 @@ export default function App() {
     </>
   )
 
-  /* function filterListByTag(title, filterProp) {
-    const listFilteredByTag = notes.filter(note =>
-      note.tag.includes(filterProp)
-    )
-
-    return (
-      <Page
-        title={title}
-        notes={listFilteredByTag}
-        onSelectTag={setSelectedTag(filterProp)}
-      ></Page>
-    )
+  function selectTag(clickedTag) {
+    setSelectedTag(clickedTag)
   }
-  */
+
+  function ListFilteredByTag(title, filterProp) {
+    return () => {
+      const filteredNotes = filterProp
+        ? notes.filter(note => note.tag.includes(filterProp))
+        : notes
+      const filteredByTag = selectedTag
+        ? filteredNotes.filter(
+            note => note.tags && note.tags.includes(selectedTag)
+          )
+        : filteredNotes
+
+      return (
+        <NotePage
+          title={title}
+          notes={filteredByTag}
+          tag={allNoteTags}
+          onSelectTag={setSelectedTag}
+        ></NotePage>
+      )
+    }
+  }
 }
+
+//           onSelectTag={setSelectedTag(filterProp)} wieder einsetzen?
+
+/* 
+function withCardPage(title, filterProp) {
+    return () => {
+      const filteredCards = filterProp ? cards.filter(card => card[filterProp]) : cards
+      const filteredByTag =
+        selectedTag === 'all'
+          ? filteredCards
+          : filteredCards.filter(card => card.tags && card.tags.includes(selectedTag))
+      return (
+        <CardPage
+          title={title}
+          cards={filteredByTag}
+          tags={allTags}
+          onBookmarkClick={handleBookmarkClick}
+          onSelectTag={setSelectedTag}
+        />
+      )
+    }
+  }
+
+
+
+*/

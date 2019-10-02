@@ -1,17 +1,18 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components/macro'
+import NotePage from './NotePage'
 
 TagFilter.propTypes = {
   tags: PropTypes.arrayOf(PropTypes.string),
   onClick: PropTypes.func
 }
 
-export default function TagFilter({ onClick, tags, active }) {
+export default function TagFilter({ onClick, allNoteTags }) {
   return (
     <FilterWrapperStyled>
       <TagFilterStyled>
-        {tags.map(tag => (
+        {allNoteTags.map(tag => (
           <FilterButtonStyled onClick={() => onClick(tag)} key={tag}>
             {tag}
           </FilterButtonStyled>
@@ -37,11 +38,12 @@ const TagFilterStyled = styled.div`
 const FilterButtonStyled = styled.button`
   border: none;
   padding: 2px 15px;
-  background-color: #e4f2f0;
   font-size: 14px;
-  color: #54abbc;
   border-radius: 7px;
   margin-right: 10px;
+  color: ${props => (props.selected ? '#f6ddab' : '#54abbc')};
+  background-color: ${props => (props.selected ? '#48c0cb' : '#e4f2f0')};
+  font-weight: ${props => (props.selected ? 'bold' : 'normal')};
 
   &:active {
     background-color:#48c0cb;
