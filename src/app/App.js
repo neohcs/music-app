@@ -1,35 +1,52 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Header from '../common/Header'
 import Page from '../common/Page'
+import notesData from '../notes.json'
 
-export default function App({ onSelectTag }) {
+export default function App() {
+  const [notes, setNotes] = useState(notesData)
   const [selectedTag, setSelectedTag] = useState()
 
+  const allNoteTags = Array.from(
+    notes.reduce((prev, note) => {
+      note.tag && prev.add(note.tag)
+      return prev
+    }, new Set())
+  )
+
+  //  const FullList = filterListByTag('AllListPage')
+  // const StartedList = filterListByTag('StartedListPage', 'started')
+  //const AdvancedList = filterListByTag('AdvancedListPage', 'advanced')
+  //const CompletedList = filterListByTag('CompletedListPage', 'completed')
+
+  function selectTag(clickedTag) {
+    setSelectedTag(clickedTag)
+  }
+
   return (
-    <React.Fragment>
+    <>
       <Header></Header>
       <Page
-        pageTitle={pageTitle}
-        notes={filteredNoteList}
-        onSelectTag={setSelectedTag(selectedTag)}
+        noteTags={allNoteTags}
+        title={'title'}
+        notes={notes}
+        onSelectTag={setSelectedTag}
       ></Page>
-    </React.Fragment>
+    </>
   )
+
+  /* function filterListByTag(title, filterProp) {
+    const listFilteredByTag = notes.filter(note =>
+      note.tag.includes(filterProp)
+    )
+
+    return (
+      <Page
+        title={title}
+        notes={listFilteredByTag}
+        onSelectTag={setSelectedTag(filterProp)}
+      ></Page>
+    )
+  }
+  */
 }
-
-function filterListByTag({ pageTitle, filterProp }) {
-  const listFilteredByTag = notes.filter(note => props.tag.includes(filterProp))
-
-  return (
-    <Page
-      pageTitle={pageTitle}
-      notes={listFilteredByTag}
-      onSelectTag={setSelectedTag(selectedTag)}
-    ></Page>
-  )
-}
-
-const FullList = filterListByTag('AllListPage')
-const StartedList = filterListByTag('StartedListPage', 'started')
-const AdvancedList = filterListByTag('AdvancedListPage', 'advanced')
-const CompletedList = filterListByTag('CompletedListPage', 'completed')

@@ -7,7 +7,7 @@ TagFilter.propTypes = {
   onClick: PropTypes.func
 }
 
-export default function TagFilter({ onClick, tags }) {
+export default function TagFilter({ onClick, tags, active }) {
   return (
     <FilterWrapperStyled>
       <TagFilterStyled>

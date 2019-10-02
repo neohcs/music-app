@@ -1,18 +1,15 @@
 import React from 'react'
 import styled from 'styled-components/macro'
 import SearchBar from '../SearchBar'
-import TagFilter from '../TagFilter'
+import TagFilter from '../notes/TagFilter'
 import Note from '../notes/Note'
-import notes from '../notes.json'
+//import notes from '../notes.json'
 
-export default function Page({ onSelectTag, notes, onSelectTag }) {
+export default function Page({ onSelectTag, notes, noteTags }) {
   return (
     <PageStyled>
       <SearchBar></SearchBar>
-      <TagFilter
-        tags={['started', 'advanced', 'completed']}
-        onClick={onSelectTag}
-      />
+      <TagFilter tags={noteTags} onClick={onSelectTag} />
       <ScrollerStyled>
         {notes.map((note, index) => (
           <Note
