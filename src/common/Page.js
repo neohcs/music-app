@@ -5,13 +5,14 @@ import TagFilter from '../TagFilter'
 import Note from '../notes/Note'
 import notes from '../notes.json'
 
-export default function Page() {
-  /*const [selectedTag, setSelectedTag] = useState()*/
-
+export default function Page({ onSelectTag, notes, onSelectTag }) {
   return (
     <PageStyled>
       <SearchBar></SearchBar>
-      <TagFilter tags={['started', 'advanced', 'completed']} />
+      <TagFilter
+        tags={['started', 'advanced', 'completed']}
+        onClick={onSelectTag}
+      />
       <ScrollerStyled>
         {notes.map((note, index) => (
           <Note
@@ -20,6 +21,7 @@ export default function Page() {
             date={note.date}
             content={note.content}
             tag={note.tag}
+            onSelectTag={() => onSelectTag(note)}
           />
         ))}
       </ScrollerStyled>
