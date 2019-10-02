@@ -1,18 +1,17 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components/macro'
-import NotePage from './NotePage'
 
 TagFilter.propTypes = {
   tags: PropTypes.arrayOf(PropTypes.string),
   onClick: PropTypes.func
 }
 
-export default function TagFilter({ onClick, allNoteTags }) {
+export default function TagFilter({ onClick, tags }) {
   return (
     <FilterWrapperStyled>
       <TagFilterStyled>
-        {allNoteTags.map(tag => (
+        {tags.map(tag => (
           <FilterButtonStyled onClick={() => onClick(tag)} key={tag}>
             {tag}
           </FilterButtonStyled>
@@ -41,19 +40,12 @@ const FilterButtonStyled = styled.button`
   font-size: 14px;
   border-radius: 7px;
   margin-right: 10px;
-  color: ${props => (props.selected ? '#f6ddab' : '#54abbc')};
-  background-color: ${props => (props.selected ? '#48c0cb' : '#e4f2f0')};
-  font-weight: ${props => (props.selected ? 'bold' : 'normal')};
+  color: #54abbc;
+  background-color: #e4f2f0;
 
   &:active {
-    background-color:#48c0cb;
+    background-color: #48c0cb;
     color: #f6ddab;
     font-weight: bold;
   }
-
-  /* einbauen, damit Farbe sich bis zum nächsten Klick verändert?
-  &:active {
-    background-color: ${props => (props.active ? '#48c0cb' : '#e4f2f0')};
-    color: ${props => (props.active ? '#f6ddab' : '##54abbc')};
-  }*/
 `

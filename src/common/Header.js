@@ -10,7 +10,7 @@ export default function Header() {
   return <HeaderStyled>SongNotes</HeaderStyled>
 }
 
-const HeaderStyled = styled.div`
+const HeaderStyled = styled.header`
   display: block;
   text-align: center;
   position: absolute;

@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import Header from '../common/Header'
-import Page from '../common/Page'
 import NotePage from '../notes/NotePage'
 import notesData from '../notes.json'
 
@@ -15,33 +14,34 @@ export default function App() {
     }, new Set())
   )
 
-  /*const FullListPage = filterListByTag('FullList')
+  const FullListPage = filterListByTag('FullList')
   const StartedListPage = filterListByTag('StartedList', 'started')
   const AdvancedListPage = filterListByTag('AdvancedList', 'advanced')
-  const CompletedListPage = filterListByTag('CompletedList', 'completed')*/
+  const CompletedListPage = filterListByTag('CompletedList', 'completed')
 
   return (
     <>
       <Header></Header>
-      <Page
-        noteTags={allNoteTags}
-        title={'title'}
+      <NotePage
+        tags={allNoteTags}
+        onSelectTag={selectTag}
+        title={'FullList'}
         notes={notes}
-        onSelectTag={setSelectedTag}
-      ></Page>
+      ></NotePage>
     </>
   )
 
   function selectTag(clickedTag) {
+    console.log('clicky')
     setSelectedTag(clickedTag)
   }
 
-  function ListFilteredByTag(title, filterProp) {
+  function filterListByTag(title, filterProp) {
     return () => {
       const filteredNotes = filterProp
         ? notes.filter(note => note.tag.includes(filterProp))
         : notes
-      const filteredByTag = selectedTag
+      const notesFilteredByTag = selectedTag
         ? filteredNotes.filter(
             note => note.tags && note.tags.includes(selectedTag)
           )
@@ -49,10 +49,10 @@ export default function App() {
 
       return (
         <NotePage
-          title={title}
-          notes={filteredByTag}
           tag={allNoteTags}
-          onSelectTag={setSelectedTag}
+          onSelectTag={selectTag}
+          title={title}
+          notes={notesFilteredByTag}
         ></NotePage>
       )
     }

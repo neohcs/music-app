@@ -1,19 +1,13 @@
 import React from 'react'
 import styled from 'styled-components/macro'
-import Header from './Header'
 
-export default function Page({ title, children }) {
-  return (
-    <PageStyled>
-      <Header>{title}</Header>
-      {children}
-    </PageStyled>
-  )
+export default function Page({ children }) {
+  return <PageStyled>{children}</PageStyled>
 }
 
 const PageStyled = styled.main`
   display: grid;
-  grid-template-rows: 48px auto;
+  grid-template-rows: auto;
   align-content: flex-start;
   overflow: auto;
 `

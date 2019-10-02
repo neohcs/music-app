@@ -3,33 +3,27 @@ import styled from 'styled-components/macro'
 import Note from './Note'
 import TagFilter from './TagFilter'
 import SearchBar from '../SearchBar'
-import App from '../app/App'
+import Page from '../common/Page'
 
-export default function NotePage({ onSelectTag, notes, title, allNoteTags }) {
+export default function NotePage({ onSelectTag, notes, title, tags }) {
   return (
-    <PageStyled title={title}>
+    <Page>
       <SearchBar></SearchBar>
-      <TagFilter tags={allNoteTags} onClick={onSelectTag} />
+      <TagFilter tags={tags} onClick={onSelectTag} />
       <ScrollerStyled>
         {notes.map(note => (
           <Note
-            key={note.index}
+            key={note.title}
             title={note.title}
             date={note.date}
             content={note.content}
             tag={note.tag}
-            onSelectTag={() => onSelectTag(note)}
           />
         ))}
       </ScrollerStyled>
-    </PageStyled>
+    </Page>
   )
 }
-
-const PageStyled = styled.div`
-  display: grid;
-  grid-template-rows: auto;
-`
 
 const ScrollerStyled = styled.div`
   display: grid;
