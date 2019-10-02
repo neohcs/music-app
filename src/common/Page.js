@@ -1,10 +1,9 @@
 import React from 'react'
 import styled from 'styled-components/macro'
-import PropTypes from 'prop-types'
-import SearchBar from './SearchBar'
-import TagFilter from './TagFilter'
-import Note from './Note'
-import notes from './notes.json'
+import SearchBar from '../SearchBar'
+import TagFilter from '../TagFilter'
+import Note from '../notes/Note'
+import notes from '../notes.json'
 
 export default function Page() {
   /*const [selectedTag, setSelectedTag] = useState()*/

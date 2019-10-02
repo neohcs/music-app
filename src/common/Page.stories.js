@@ -1,5 +1,5 @@
 import React from 'react'
-import Note, { DateStyled, TitleStyled, ContentStyled, Tag } from './Note'
+import Note from '../notes/Note'
 
 export default {
   title: 'Page'

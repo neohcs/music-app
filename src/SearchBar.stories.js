@@ -1,8 +1,8 @@
 import React from 'react'
-import Note, { DateStyled, TitleStyled, ContentStyled, Tag } from './Note'
+import SearchBar from './SearchBar'
 
 export default {
   title: 'Searchbar'
 }
 
-export const searchbar = () => <SearchBar type={input}></SearchBar>
+export const searchbar = () => <SearchBar></SearchBar>
