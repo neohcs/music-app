@@ -4,10 +4,12 @@ import Note from './Note'
 import TagFilter from './TagFilter'
 import SearchBar from '../SearchBar'
 import Page from '../common/Page'
+import Header from '../common/Header'
 
 export default function NotePage({ onSelectTag, notes, title, tags }) {
   return (
     <Page title={title}>
+      <Header></Header>
       <SearchBar></SearchBar>
       <TagFilter tags={tags} onClick={onSelectTag} />
       <ScrollerStyled>
