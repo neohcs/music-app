@@ -8,14 +8,15 @@ export default function App() {
   const [selectedTag, setSelectedTag] = useState()
 
   const allNoteTags = Array.from(
-    notes.reduce((prev, note) => {
-      note.tag && prev.add(note.tag)
+    notesData.reduce((prev, note) => {
+      prev.add(note.tag)
       return prev
     }, new Set())
-  )
+  ) //Problem: Wenn die Karten mehrfach gefiltert werden, verschwinden Karten und damit auch ihre tags
   /*
   const FullListPage = filterListByTag('FullList')
   const StartedListPage = filterListByTag('StartedList', 'started')
+  
   const AdvancedListPage = filterListByTag('AdvancedList', 'advanced')
   const CompletedListPage = filterListByTag('CompletedList', 'completed')
 */
@@ -26,7 +27,7 @@ export default function App() {
       <NotePage
         tags={allNoteTags}
         onSelectTag={selectTag}
-        title={'FullList'}
+        // title={FullListPage}
         notes={notes}
       ></NotePage>
     </>
@@ -35,53 +36,10 @@ export default function App() {
   function selectTag(clickedTag) {
     console.log('clicky')
     setSelectedTag(clickedTag)
-  }
-
-  function filterListByTag(title, filterProp) {
-    return () => {
-      const filteredNotes = filterProp
-        ? notes.filter(note => note.tag.includes(filterProp))
-        : notes
-      const notesFilteredByTag = selectedTag
-        ? filteredNotes.filter(
-            note => note.tags && note.tags.includes(selectedTag)
-          )
-        : filteredNotes
-
-      return (
-        <NotePage
-          tag={allNoteTags}
-          onSelectTag={selectTag}
-          title={title}
-          notes={notesFilteredByTag}
-        ></NotePage>
-      )
-    }
+    console.log(clickedTag)
+    const filteredNotes = selectedTag
+      ? notes.filter(note => note.tag.includes(selectedTag))
+      : notes
+    setNotes(filteredNotes)
   }
 }
-
-//           onSelectTag={setSelectedTag(filterProp)} wieder einsetzen?
-
-/* 
-function withCardPage(title, filterProp) {
-    return () => {
-      const filteredCards = filterProp ? cards.filter(card => card[filterProp]) : cards
-      const filteredByTag =
-        selectedTag === 'all'
-          ? filteredCards
-          : filteredCards.filter(card => card.tags && card.tags.includes(selectedTag))
-      return (
-        <CardPage
-          title={title}
-          cards={filteredByTag}
-          tags={allTags}
-          onBookmarkClick={handleBookmarkClick}
-          onSelectTag={setSelectedTag}
-        />
-      )
-    }
-  }
-
-
-
-*/

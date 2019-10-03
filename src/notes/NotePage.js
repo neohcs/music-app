@@ -7,7 +7,7 @@ import Page from '../common/Page'
 
 export default function NotePage({ onSelectTag, notes, title, tags }) {
   return (
-    <Page>
+    <Page title={title}>
       <SearchBar></SearchBar>
       <TagFilter tags={tags} onClick={onSelectTag} />
       <ScrollerStyled>
