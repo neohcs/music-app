@@ -19,8 +19,11 @@ const FilterButtonStyled = styled.button`
   font-size: 14px;
   border-radius: 7px;
   margin-right: 10px;
-  color: #54abbc;
   background-color: #e4f2f0;
+  color: #54abbc;
+  background: ${props => (props.selected ? '#48c0cb' : '#e4f2f0')};
+  color: ${props => (props.selected ? '#f6ddab' : '#54abbc')};
+  font-weight: ${props => (props.selected ? 'bold' : 'normal')};
 
   :active {
     background-color: #48c0cb;
