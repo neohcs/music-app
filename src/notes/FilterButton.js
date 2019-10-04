@@ -22,7 +22,6 @@ export default function FilterButton({ onClick, tag }) {
   function handleClick() {
     setButtonColor(!buttonColor)
     onClick(tag)
-    //clickedButton.classList.toggle('selected')
   }
 }
 

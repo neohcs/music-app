@@ -1,8 +1,6 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import Header from '../common/Header'
 import NotePage from '../notes/NotePage'
-import TagFilter from '../notes/TagFilter'
-import FilterButton from '../notes/FilterButton'
 import notesData from '../notes.json'
 
 export default function App() {
@@ -23,7 +21,6 @@ export default function App() {
       <NotePage
         tags={allNoteTags}
         onSelectTag={selectTag}
-        // title={FullListPage}
         notes={filteredNotes}
       ></NotePage>
     </>
