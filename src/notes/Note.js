@@ -1,4 +1,5 @@
 import React from 'react'
+import { Pageview } from 'styled-icons/material'
 import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
 import Tag from './Tag'
@@ -9,13 +10,14 @@ Note.propTypes = {
   content: PropTypes.string
 }
 
-export default function Note({ title, date, content, tag }) {
+export default function Note({ title, date, content, tag, handleClick }) {
   return (
     <NoteStyled>
       <DateStyled>{date}</DateStyled>
       <TitleStyled>{title}</TitleStyled>
       <ContentStyled>{content}</ContentStyled>
       <Tag tag={tag}></Tag>
+      <NoteViewIconStyled onClick={handleClick}></NoteViewIconStyled>
     </NoteStyled>
   )
 }
@@ -50,4 +52,11 @@ const ContentStyled = styled.p`
   font-size: 16px;
   color: #54abbc;
   word-wrap: break-word;
+`
+const NoteViewIconStyled = styled(Pageview)`
+  display: inline-block;
+  position: absolute;
+  right: 30px;
+  height: 40px;
+  color: #f6c597;
 `
