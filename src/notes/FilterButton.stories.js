@@ -1,14 +1,14 @@
 import React from 'react'
 import { action } from '@storybook/addon-actions'
-import TagFilter from './TagFilter'
+import FilterButton from './FilterButton'
 
 export default {
-  title: 'TagFilter'
+  title: 'FilterButton'
 }
 
-export const tagFilter = () => (
-  <TagFilter
+export const filterButton = () => (
+  <FilterButton
     tags={['started', 'advanced', 'completed']}
     onCLick={action('onClick')}
-  ></TagFilter>
+  ></FilterButton>
 )
