@@ -8,7 +8,7 @@ import Header from '../common/Header'
 
 export default function NotePage({ onSelectTag, notes, title, tags }) {
   return (
-    <Page title={title}>
+    <Page title={"NotePage"}>
       <Header></Header>
       <SearchBar></SearchBar>
       <TagFilter tags={tags} onClick={onSelectTag} />
