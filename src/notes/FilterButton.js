@@ -9,7 +9,9 @@ FilterButton.propTypes = {
 
 export default function FilterButton({ onClick, tag }) {
   return (
-    <FilterButtonStyled onClick={() => onClick(tag)}>{tag}</FilterButtonStyled>
+    <FilterButtonStyled onClick={() => onClick(tag)} >
+      {tag}
+    </FilterButtonStyled>
   )
 }
 
