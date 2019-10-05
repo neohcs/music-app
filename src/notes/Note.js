@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Pageview } from 'styled-icons/material'
+import { Collapse, EditAlt } from 'styled-icons/boxicons-regular'
 import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
 import Tag from './Tag'
@@ -10,14 +11,41 @@ Note.propTypes = {
   content: PropTypes.string
 }
 
-export default function Note({ title, date, content, tag, handleClick }) {
+export default function Note({
+  title,
+  date,
+  content,
+  tag,
+  handleClick,
+  className,
+  expanded
+}) {
+  const [isNoteExpanded, setIsNoteExpanded] = useState(false)
+
+  function toggleExpanded() {
+    setIsNoteExpanded(!isNoteExpanded)
+  }
+
   return (
     <NoteStyled>
       <DateStyled>{date}</DateStyled>
       <TitleStyled>{title}</TitleStyled>
-      <ContentStyled>{content}</ContentStyled>
+      {isNoteExpanded ? (
+        <ContentStyled className={'expanded'}>{content}</ContentStyled>
+      ) : (
+        <ContentStyled>{content}</ContentStyled>
+      )}
       <Tag tag={tag}></Tag>
-      <NoteViewIconStyled onClick={handleClick}></NoteViewIconStyled>
+      {isNoteExpanded ? (
+        <>
+          <NoteCollapseIconStyled
+            onClick={toggleExpanded}
+          ></NoteCollapseIconStyled>
+          <NoteEditIconStyled></NoteEditIconStyled>
+        </>
+      ) : (
+        <NoteViewIconStyled onClick={toggleExpanded}></NoteViewIconStyled>
+      )}
     </NoteStyled>
   )
 }
@@ -48,15 +76,38 @@ const ContentStyled = styled.p`
   display: -webkit-box;
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
+  height: 60px;
   overflow: hidden;
   font-size: 16px;
   color: #54abbc;
   word-wrap: break-word;
+
+  &.expanded {
+    display: block;
+    height: auto;
+  }
 `
+
 const NoteViewIconStyled = styled(Pageview)`
   display: inline-block;
   position: absolute;
   right: 30px;
   height: 40px;
+  color: #f6c597;
+`
+
+const NoteCollapseIconStyled = styled(Collapse)`
+  display: inline-block;
+  position: absolute;
+  right: 30px;
+  height: 30px;
+  color: #f6c597;
+`
+
+const NoteEditIconStyled = styled(EditAlt)`
+  display: inline-block;
+  position: absolute;
+  right: 70px;
+  height: 30px;
   color: #f6c597;
 `

@@ -8,7 +8,7 @@ import Header from '../common/Header'
 
 export default function NotePage({ onSelectTag, notes, title, tags }) {
   return (
-    <Page title={"NotePage"}>
+    <Page title={'NotePage'}>
       <Header></Header>
       <SearchBar></SearchBar>
       <TagFilter tags={tags} onClick={onSelectTag} />
@@ -18,7 +18,9 @@ export default function NotePage({ onSelectTag, notes, title, tags }) {
             key={note.title}
             title={note.title}
             date={note.date}
-            content={note.content}
+            content={note.content.split('\n').map(line => {
+              return <LineBreakStyled>{line}</LineBreakStyled>
+            })}
             tag={note.tag}
           />
         ))}
@@ -33,4 +35,7 @@ const ScrollerStyled = styled.div`
   overflow-y: auto;
   scroll-behavior: smooth;
   padding: 20px 10px;
+`
+const LineBreakStyled = styled.p`
+  margin: 0px;
 `

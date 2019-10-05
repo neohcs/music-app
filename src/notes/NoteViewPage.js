@@ -1,12 +1,16 @@
 import React from 'react'
 import styled from 'styled-components/macro'
-import Note from '../notes/Note'
-import TagFilter from '../notes/TagFilter'
-import SearchBar from '../SearchBar'
 import Page from '../common/Page'
 import Header from '../common/Header'
+import Note from './Note'
 
-export default function NotePage({ notes, tags }) {
+export default function NotePage({
+  notes,
+  tags,
+  className,
+  expanded,
+  children
+}) {
   return (
     <Page title={'NoteViewPage'}>
       <Header></Header>
@@ -21,7 +25,14 @@ export default function NotePage({ notes, tags }) {
               date={note.date}
               content={note.content}
               tag={note.tag}
-            />
+            >
+              {/* <DateStyled>{note.date}</DateStyled>
+              <TitleStyled>{note.title}</TitleStyled>
+              <ContentStyled className={'expanded'}>
+                {note.content}
+              </ContentStyled>
+              <Tag tag={note.tag}></Tag> */}
+            </Note>
           ))}
       </ScrollerStyled>
     </Page>
