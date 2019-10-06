@@ -1,12 +1,6 @@
 import React, { useState } from 'react'
-import { Pageview } from 'styled-icons/material'
-import { Collapse, EditAlt } from 'styled-icons/boxicons-regular'
-import {
-  ArrowMinimise,
-  ArrowMaximise,
-  ArrowSortedDown,
-  ArrowSortedUp
-} from 'styled-icons/typicons'
+import { EditAlt } from 'styled-icons/boxicons-regular'
+import { ArrowSortedDown, ArrowSortedUp } from 'styled-icons/typicons'
 import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
 import Tag from './Tag'
@@ -17,15 +11,7 @@ Note.propTypes = {
   content: PropTypes.string
 }
 
-export default function Note({
-  title,
-  date,
-  content,
-  tag,
-  handleClick,
-  className,
-  expanded
-}) {
+export default function Note({ title, date, content, tag }) {
   const [isNoteExpanded, setIsNoteExpanded] = useState(false)
 
   function toggleExpanded() {
@@ -74,6 +60,7 @@ const DateStyled = styled.div`
   font-size: 12px;
   color: #3997a0;
 `
+
 const TitleStyled = styled.h1`
   font-size: 18px;
   color: #3997a0;

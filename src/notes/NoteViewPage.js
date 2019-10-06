@@ -5,11 +5,7 @@ import Header from '../common/Header'
 import Note from './Note'
 
 export default function NotePage({
-  notes,
-  tags,
-  className,
-  expanded,
-  children
+  notes
 }) {
   return (
     <Page title={'NoteViewPage'}>
@@ -26,12 +22,6 @@ export default function NotePage({
               content={note.content}
               tag={note.tag}
             >
-              {/* <DateStyled>{note.date}</DateStyled>
-              <TitleStyled>{note.title}</TitleStyled>
-              <ContentStyled className={'expanded'}>
-                {note.content}
-              </ContentStyled>
-              <Tag tag={note.tag}></Tag> */}
             </Note>
           ))}
       </ScrollerStyled>

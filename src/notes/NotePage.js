@@ -6,7 +6,7 @@ import SearchBar from '../SearchBar'
 import Page from '../common/Page'
 import Header from '../common/Header'
 
-export default function NotePage({ onSelectTag, notes, title, tags }) {
+export default function NotePage({ onSelectTag, notes, tags }) {
   return (
     <Page title={'NotePage'}>
       <Header></Header>
