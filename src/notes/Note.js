@@ -1,6 +1,12 @@
 import React, { useState } from 'react'
 import { Pageview } from 'styled-icons/material'
 import { Collapse, EditAlt } from 'styled-icons/boxicons-regular'
+import {
+  ArrowMinimise,
+  ArrowMaximise,
+  ArrowSortedDown,
+  ArrowSortedUp
+} from 'styled-icons/typicons'
 import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
 import Tag from './Tag'
@@ -51,6 +57,7 @@ export default function Note({
 }
 
 const NoteStyled = styled.section`
+  position: relative;
   width: 90vw;
   box-sizing: border-box;
   font-family: Lucida Grande, Lucida Sans Unicode, Lucida Sans, Geneva, Verdana,
@@ -88,26 +95,29 @@ const ContentStyled = styled.p`
   }
 `
 
-const NoteViewIconStyled = styled(Pageview)`
+const NoteViewIconStyled = styled(ArrowSortedDown)`
   display: inline-block;
   position: absolute;
-  right: 30px;
-  height: 40px;
+  right: 10px;
+  bottom: 5px;
+  height: 50px;
   color: #f6c597;
 `
 
-const NoteCollapseIconStyled = styled(Collapse)`
+const NoteCollapseIconStyled = styled(ArrowSortedUp)`
   display: inline-block;
   position: absolute;
-  right: 30px;
-  height: 30px;
+  right: 10px;
+  bottom: 5px;
+  height: 50px;
   color: #f6c597;
 `
 
 const NoteEditIconStyled = styled(EditAlt)`
   display: inline-block;
   position: absolute;
-  right: 70px;
+  top: 30px;
+  right: 10px;
   height: 30px;
   color: #f6c597;
 `
