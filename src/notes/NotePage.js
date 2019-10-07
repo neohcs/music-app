@@ -6,12 +6,12 @@ import SearchBar from '../SearchBar'
 import Page from '../common/Page'
 import Header from '../common/Header'
 
-export default function NotePage({ onSelectTag, notes, tags }) {
+export default function NotePage({ onSelectTag, notes, tags, selectedTag }) {
   return (
     <Page title={'NotePage'}>
       <Header></Header>
       <SearchBar></SearchBar>
-      <TagFilter tags={tags} onClick={onSelectTag} />
+      <TagFilter tags={tags} onClick={onSelectTag} selectedTag={selectedTag} />
       <ScrollerStyled>
         {notes.map(note => (
           <Note
