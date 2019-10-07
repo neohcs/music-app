@@ -14,7 +14,7 @@ Note.propTypes = {
 export default function Note({ title, date, content, tag }) {
   const [isNoteExpanded, setIsNoteExpanded] = useState(false)
 
-  function toggleExpanded() {
+  function toggleExpandNote() {
     setIsNoteExpanded(!isNoteExpanded)
   }
 
@@ -31,12 +31,12 @@ export default function Note({ title, date, content, tag }) {
       {isNoteExpanded ? (
         <>
           <NoteCollapseIconStyled
-            onClick={toggleExpanded}
+            onClick={toggleExpandNote}
           ></NoteCollapseIconStyled>
           <NoteEditIconStyled></NoteEditIconStyled>
         </>
       ) : (
-        <NoteViewIconStyled onClick={toggleExpanded}></NoteViewIconStyled>
+        <NoteViewIconStyled onClick={toggleExpandNote}></NoteViewIconStyled>
       )}
     </NoteStyled>
   )
