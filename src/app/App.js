@@ -21,6 +21,7 @@ export default function App() {
         tags={allNoteTags}
         onSelectTag={selectTag}
         notes={filteredNotes}
+        selectedTag={selectedTag}
       ></NotePage>
       <NoteViewPage
         onSelectTag={selectTag}
