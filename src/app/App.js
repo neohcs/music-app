@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import Header from '../common/Header'
-import NotePage from '../notes/NotePage'
 import notesData from '../notes.json'
+import NotePage from '../notes/NotePage'
+import NoteViewPage from '../notes/NoteViewPage'
 
 export default function App() {
   const [selectedTag, setSelectedTag] = useState('')
@@ -17,12 +17,15 @@ export default function App() {
 
   return (
     <>
-      <Header></Header>
       <NotePage
         tags={allNoteTags}
         onSelectTag={selectTag}
         notes={filteredNotes}
       ></NotePage>
+      <NoteViewPage
+        onSelectTag={selectTag}
+        notes={filteredNotes}
+      ></NoteViewPage>
     </>
   )
 

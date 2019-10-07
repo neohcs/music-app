@@ -11,7 +11,9 @@ export default function SearchBar() {
 }
 
 const SearchBarStyled = styled.input`
-  margin-top: 65px;
+  position: relative;
+  left: 32%;
+  margin-top: 68px;
   width: 100px;
   background-color: #f1f1f1;
   padding-left: 5px;
@@ -19,6 +21,5 @@ const SearchBarStyled = styled.input`
   border-radius: 7px;
   border: none;
   height: 20px;
-  margin-left: 100px; /* anders lösen */
   margin-bottom: 10px;
 `

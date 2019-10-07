@@ -1,4 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { EditAlt } from 'styled-icons/boxicons-regular'
+import { ArrowSortedDown, ArrowSortedUp } from 'styled-icons/typicons'
 import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
 import Tag from './Tag'
@@ -10,17 +12,38 @@ Note.propTypes = {
 }
 
 export default function Note({ title, date, content, tag }) {
+  const [isNoteExpanded, setIsNoteExpanded] = useState(false)
+
+  function toggleExpandNote() {
+    setIsNoteExpanded(!isNoteExpanded)
+  }
+
   return (
     <NoteStyled>
       <DateStyled>{date}</DateStyled>
       <TitleStyled>{title}</TitleStyled>
-      <ContentStyled>{content}</ContentStyled>
+      {isNoteExpanded ? (
+        <ContentStyled className={'expanded'}>{content}</ContentStyled>
+      ) : (
+        <ContentStyled>{content}</ContentStyled>
+      )}
       <Tag tag={tag}></Tag>
+      {isNoteExpanded ? (
+        <>
+          <NoteCollapseIconStyled
+            onClick={toggleExpandNote}
+          ></NoteCollapseIconStyled>
+          <NoteEditIconStyled></NoteEditIconStyled>
+        </>
+      ) : (
+        <NoteViewIconStyled onClick={toggleExpandNote}></NoteViewIconStyled>
+      )}
     </NoteStyled>
   )
 }
 
 const NoteStyled = styled.section`
+  position: relative;
   width: 90vw;
   box-sizing: border-box;
   font-family: Lucida Grande, Lucida Sans Unicode, Lucida Sans, Geneva, Verdana,
@@ -37,6 +60,7 @@ const DateStyled = styled.div`
   font-size: 12px;
   color: #3997a0;
 `
+
 const TitleStyled = styled.h1`
   font-size: 18px;
   color: #3997a0;
@@ -46,8 +70,41 @@ const ContentStyled = styled.p`
   display: -webkit-box;
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
+  height: 60px;
   overflow: hidden;
   font-size: 16px;
   color: #54abbc;
   word-wrap: break-word;
+
+  &.expanded {
+    display: block;
+    height: auto;
+  }
+`
+
+const NoteViewIconStyled = styled(ArrowSortedDown)`
+  display: inline-block;
+  position: absolute;
+  right: 10px;
+  bottom: 5px;
+  height: 50px;
+  color: #f6c597;
+`
+
+const NoteCollapseIconStyled = styled(ArrowSortedUp)`
+  display: inline-block;
+  position: absolute;
+  right: 10px;
+  bottom: 5px;
+  height: 50px;
+  color: #f6c597;
+`
+
+const NoteEditIconStyled = styled(EditAlt)`
+  display: inline-block;
+  position: absolute;
+  top: 30px;
+  right: 10px;
+  height: 30px;
+  color: #f6c597;
 `

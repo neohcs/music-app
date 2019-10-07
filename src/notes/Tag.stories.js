@@ -5,4 +5,4 @@ export default {
   title: 'Tag'
 }
 
-export const tag = () => <Tag></Tag>
+export const tag = () => <Tag tag={'test'}>{tag}</Tag>

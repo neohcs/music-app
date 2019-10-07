@@ -7,8 +7,5 @@ export default {
 }
 
 export const filterButton = () => (
-  <FilterButton
-    tags={['started', 'advanced', 'completed']}
-    onCLick={action('onClick')}
-  ></FilterButton>
+  <FilterButton onCLick={action('onClick')}>test</FilterButton>
 )
