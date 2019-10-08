@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import notesData from '../notes.json'
 import NotePage from '../notes/NotePage'
-import NoteViewPage from '../notes/NoteViewPage'
+import CreatePage from '../create/CreatePage'
 
 export default function App() {
   const [selectedTag, setSelectedTag] = useState('')
@@ -23,10 +23,12 @@ export default function App() {
         notes={filteredNotes}
         selectedTag={selectedTag}
       ></NotePage>
-      <NoteViewPage
+      <CreatePage
+        tags={allNoteTags}
         onSelectTag={selectTag}
-        notes={filteredNotes}
-      ></NoteViewPage>
+        selectedTag={selectedTag}
+        onSubmit={createCard}
+      ></CreatePage>
     </>
   )
 
@@ -35,5 +37,9 @@ export default function App() {
     return selectedTag === clickedTag
       ? setSelectedTag('')
       : setSelectedTag(clickedTag)
+  }
+
+  function createCard(newNoteData) {
+    notesData.push(newNoteData)
   }
 }
