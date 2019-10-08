@@ -5,7 +5,6 @@ import CreatePage from '../create/CreatePage'
 
 export default function App() {
   const [selectedTag, setSelectedTag] = useState('')
-
   const allNoteTags = Array.from(
     notesData.reduce((prev, note) => {
       prev.add(note.tag)
@@ -27,7 +26,7 @@ export default function App() {
         tags={allNoteTags}
         onSelectTag={selectTag}
         selectedTag={selectedTag}
-        onSubmit={createCard}
+        onSubmit={createNote}
       ></CreatePage>
     </>
   )
@@ -39,7 +38,8 @@ export default function App() {
       : setSelectedTag(clickedTag)
   }
 
-  function createCard(newNoteData) {
+  function createNote(newNoteData) {
+    // JSON.stringify(newNoteData) -> bearbeiten, wenn Backend vorhanden
     notesData.push(newNoteData)
   }
 }
