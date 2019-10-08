@@ -7,18 +7,20 @@ Header.propTypes = {
 }
 
 export default function Header() {
-  return <HeaderStyled>SongNotes</HeaderStyled>
+  return <HeaderStyled>AUDIOPEN</HeaderStyled>
 }
 
 const HeaderStyled = styled.header`
-  display: block;
-  text-align: center;
-  position: absolute;
-  padding: 10px;
-  height: 60px;
-  width: 100vw;
   background-color: #48c0cb;
+  color: #f5f8f8;
+  display: block;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   font-size: 36px;
   font-weight: bold;
-  color: #f6c597;
+  height: 60px;
+  letter-spacing: 3px;
+  padding: 10px;
+  position: absolute;
+  text-align: center;
+  width: 100vw;
 `

@@ -1,19 +1,29 @@
 import React, { useState } from 'react'
 import notesData from '../notes.json'
 import NotePage from '../notes/NotePage'
-import NoteViewPage from '../notes/NoteViewPage'
+import CreatePage from '../create/CreatePage'
 
 export default function App() {
   const [selectedTag, setSelectedTag] = useState('')
-
   const allNoteTags = Array.from(
     notesData.reduce((prev, note) => {
       prev.add(note.tag)
       return prev
     }, new Set())
   )
-
   const filteredNotes = notesData.filter(note => note.tag.includes(selectedTag))
+
+  function selectTag(clickedTag) {
+    setSelectedTag(clickedTag)
+    return selectedTag === clickedTag
+      ? setSelectedTag('')
+      : setSelectedTag(clickedTag)
+  }
+
+  function createNote(newNoteData) {
+    // JSON.stringify(newNoteData) -> bearbeiten, wenn Backend vorhanden
+    notesData.push(newNoteData)
+  }
 
   return (
     <>
@@ -23,17 +33,12 @@ export default function App() {
         notes={filteredNotes}
         selectedTag={selectedTag}
       ></NotePage>
-      <NoteViewPage
+      <CreatePage
+        tags={allNoteTags}
         onSelectTag={selectTag}
-        notes={filteredNotes}
-      ></NoteViewPage>
+        selectedTag={selectedTag}
+        onSubmit={createNote}
+      ></CreatePage>
     </>
   )
-
-  function selectTag(clickedTag) {
-    setSelectedTag(clickedTag)
-    return selectedTag === clickedTag
-      ? setSelectedTag('')
-      : setSelectedTag(clickedTag)
-  }
 }

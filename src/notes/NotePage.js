@@ -10,9 +10,13 @@ export default function NotePage({ onSelectTag, notes, tags, selectedTag }) {
   return (
     <Page title={'NotePage'}>
       <Header></Header>
-      <SearchBar></SearchBar>
-      <TagFilter tags={tags} onClick={onSelectTag} selectedTag={selectedTag} />
       <ScrollerStyled>
+        <SearchBar></SearchBar>
+        <TagFilter
+          tags={tags}
+          onClick={onSelectTag}
+          selectedTag={selectedTag}
+        />
         {notes.map(note => (
           <Note
             key={note.title}
@@ -34,7 +38,9 @@ const ScrollerStyled = styled.div`
   gap: 20px;
   overflow-y: auto;
   scroll-behavior: smooth;
-  padding: 20px 10px;
+  padding: 20px;
+  margin-top: 50px;
+  justify-items: center;
 `
 const LineBreakStyled = styled.p`
   margin: 0px;

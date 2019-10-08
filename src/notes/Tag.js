@@ -17,5 +17,4 @@ const TagStyled = styled.div`
   font-size: 14px;
   color: #54abbc;
   border-radius: 7px;
-  margin-right: 10px;
 `

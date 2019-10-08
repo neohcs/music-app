@@ -10,31 +10,24 @@ TagFilter.propTypes = {
 
 export default function TagFilter({ onClick, tags, selectedTag }) {
   return (
-    <FilterWrapperStyled>
-      <TagFilterStyled>
-        {tags.map(tag => (
-          <FilterButton
-            selectedTag={selectedTag}
-            onClick={() => onClick(tag)}
-            tag={tag}
-            key={tag}
-          ></FilterButton>
-        ))}
-      </TagFilterStyled>
-    </FilterWrapperStyled>
+    <TagFilterStyled>
+      {tags.map(tag => (
+        <FilterButton
+          selectedTag={selectedTag}
+          onClick={() => onClick(tag)}
+          tag={tag}
+          key={tag}
+        ></FilterButton>
+      ))}
+    </TagFilterStyled>
   )
 }
 
-const FilterWrapperStyled = styled.div`
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  grid-gap: 10px;
-`
-
 const TagFilterStyled = styled.div`
-  grid-column: 2;
+  width: 100%;
+  grid-row: 2;
   position: relative;
-  width: 90vw;
   display: flex;
   justify-content: space-between;
+  margin: 0;
 `

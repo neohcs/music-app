@@ -19,20 +19,25 @@ export default function FilterButton({ onClick, tag, selectedTag }) {
 }
 
 const FilterButtonStyled = styled.button`
+  padding: 2px;
   border: none;
-  padding: 2px 15px;
+  /* border: 0.5px solid #54abbc; */
+  width: 100px;
   font-size: 14px;
   border-radius: 7px;
-  margin-right: 10px;
   background-color: #e4f2f0;
   color: #54abbc;
   background: ${props => (props.selected ? '#48c0cb' : '#e4f2f0')};
-  color: ${props => (props.selected ? '#f6ddab' : '#54abbc')};
+  color: ${props => (props.selected ? 'white' : '#54abbc')};
   font-weight: ${props => (props.selected ? 'bold' : 'normal')};
-
+  box-shadow: 0 3px 10px #0002;
+  :focus {
+    box-shadow: 0 0 1px 3px rgba(70, 220, 252, 0.7);
+  }
   :active {
-    background-color: #48c0cb;
-    color: #f6ddab;
-    font-weight: bold;
+    box-shadow: none;
+    background: '#48c0cb';
+    color: 'white';
+    font-weight: 'bold';
   }
 `

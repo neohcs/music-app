@@ -88,7 +88,7 @@ const NoteViewIconStyled = styled(ArrowSortedDown)`
   right: 10px;
   bottom: 5px;
   height: 50px;
-  color: #f6c597;
+  color: #ffc187;
 `
 
 const NoteCollapseIconStyled = styled(ArrowSortedUp)`
@@ -97,7 +97,7 @@ const NoteCollapseIconStyled = styled(ArrowSortedUp)`
   right: 10px;
   bottom: 5px;
   height: 50px;
-  color: #f6c597;
+  color: #ffc187;
 `
 
 const NoteEditIconStyled = styled(EditAlt)`
@@ -106,5 +106,5 @@ const NoteEditIconStyled = styled(EditAlt)`
   top: 30px;
   right: 10px;
   height: 30px;
-  color: #f6c597;
+  color: #ffc187;
 `
