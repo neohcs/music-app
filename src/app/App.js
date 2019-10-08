@@ -11,8 +11,19 @@ export default function App() {
       return prev
     }, new Set())
   )
-
   const filteredNotes = notesData.filter(note => note.tag.includes(selectedTag))
+
+  function selectTag(clickedTag) {
+    setSelectedTag(clickedTag)
+    return selectedTag === clickedTag
+      ? setSelectedTag('')
+      : setSelectedTag(clickedTag)
+  }
+
+  function createNote(newNoteData) {
+    // JSON.stringify(newNoteData) -> bearbeiten, wenn Backend vorhanden
+    notesData.push(newNoteData)
+  }
 
   return (
     <>
@@ -30,16 +41,4 @@ export default function App() {
       ></CreatePage>
     </>
   )
-
-  function selectTag(clickedTag) {
-    setSelectedTag(clickedTag)
-    return selectedTag === clickedTag
-      ? setSelectedTag('')
-      : setSelectedTag(clickedTag)
-  }
-
-  function createNote(newNoteData) {
-    // JSON.stringify(newNoteData) -> bearbeiten, wenn Backend vorhanden
-    notesData.push(newNoteData)
-  }
 }

@@ -5,6 +5,16 @@ import Header from '../common/Header'
 import FilterButton from '../notes/FilterButton'
 
 export default function CreatePage({ onSubmit }) {
+  function handleSubmit(event) {
+    event.preventDefault()
+    const form = event.target // hier halte ich fest, wo das Event passiert: auf der form
+    const formData = new FormData(form) // hier gebe ich der FormData diese form mit, damit aus ihren Daten Key-Value-Pairs erstellt werden
+    const data = Object.fromEntries(formData) // hier werden mit der Object.fromEntries-Methode die Key-Value-Paare in ein Objekt umgewandelt
+    onSubmit(data) // hier wird onSubmit aufgerufen und das neue Objekt übergeben. Die Funktion wird der CreatePage in der App mit dem Argument createPage (Funktion) besetzt. Dort wird dann createPage ausgeführt
+    form.reset() //dies leert die Felder der Form automatisch
+    form.title.focus() // dies setzt den Fokus automatisch wieder ins Titel-Input-Feld
+  }
+
   return (
     <>
       <Page title={'CreatePage'}></Page>
@@ -30,16 +40,6 @@ export default function CreatePage({ onSubmit }) {
       </FormStyled>
     </>
   )
-
-  function handleSubmit(event) {
-    event.preventDefault()
-    const form = event.target // hier halte ich fest, wo das Event passiert: auf der form
-    const formData = new FormData(form) // hier gebe ich der FormData diese form mit, damit aus ihren Daten Key-Value-Pairs erstellt werden
-    const data = Object.fromEntries(formData) // hier werden mit der Object.fromEntries-Methode die Key-Value-Paare in ein Objekt umgewandelt
-    onSubmit(data) // hier wird onSubmit aufgerufen und das neue Objekt übergeben. Die Funktion wird der CreatePage in der App mit dem Argument createPage (Funktion) besetzt. Dort wird dann createPage ausgeführt
-    form.reset() //dies leert die Felder der Form automatisch
-    form.title.focus() // dies setzt den Fokus automatisch wieder ins Titel-Input-Feld
-  }
 }
 
 const FormStyled = styled.form`

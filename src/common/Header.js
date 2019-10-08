@@ -11,16 +11,16 @@ export default function Header() {
 }
 
 const HeaderStyled = styled.header`
+  background-color: #48c0cb;
+  color: #f5f8f8;
   display: block;
-  text-align: center;
-  position: absolute;
-  padding: 10px;
-  height: 60px;
-  width: 100vw;
-  background-color: #48C0CB;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   font-size: 36px;
   font-weight: bold;
-  color: #F5F8F8;
+  height: 60px;
   letter-spacing: 3px;
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; */ */
+  padding: 10px;
+  position: absolute;
+  text-align: center;
+  width: 100vw;
 `

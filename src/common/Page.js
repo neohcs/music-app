@@ -6,8 +6,8 @@ export default function Page({ children }) {
 }
 
 const PageStyled = styled.main`
+  align-content: flex-start;
   display: grid;
   grid-template-rows: auto;
-  align-content: flex-start;
   overflow: auto;
 `
