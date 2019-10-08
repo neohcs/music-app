@@ -1,17 +1,26 @@
-import React, { useState } from 'react'
-import notesData from '../notes.json'
+import React, { useState, useEffect } from 'react'
 import NotePage from '../notes/NotePage'
 import CreatePage from '../create/CreatePage'
+import { getNotes, postNote } from '../notes/services'
 
 export default function App() {
   const [selectedTag, setSelectedTag] = useState('')
-  const allNoteTags = Array.from(
-    notesData.reduce((prev, note) => {
-      prev.add(note.tag)
-      return prev
-    }, new Set())
-  )
-  const filteredNotes = notesData.filter(note => note.tag.includes(selectedTag))
+  const [noteList, setNoteList] = useState([])
+  useEffect(() => {
+    getNotes().then(setNoteList)
+  }, [])
+
+  console.log(noteList)
+
+  const allNoteTags = ['started', 'advanced', 'completed']
+  // const allNoteTags = Array.from(
+  //   noteList.reduce((prev, note) => {
+  //     prev.add(note.tag)
+  //     return prev
+  //   }, new Set())
+  // )
+
+  // const filteredNotes = noteList.filter(note => note.tag.includes(selectedTag))
 
   function selectTag(clickedTag) {
     setSelectedTag(clickedTag)
@@ -21,8 +30,7 @@ export default function App() {
   }
 
   function createNote(newNoteData) {
-    // JSON.stringify(newNoteData) -> bearbeiten, wenn Backend vorhanden
-    notesData.push(newNoteData)
+    postNote(newNoteData).then(note => setNoteList([...noteList, note]))
   }
 
   return (
@@ -30,7 +38,7 @@ export default function App() {
       <NotePage
         tags={allNoteTags}
         onSelectTag={selectTag}
-        notes={filteredNotes}
+        notes={noteList}
         selectedTag={selectedTag}
       ></NotePage>
       <CreatePage
