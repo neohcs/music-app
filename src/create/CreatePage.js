@@ -31,10 +31,16 @@ export default function CreatePage({ onSubmit }) {
         <SelectLabelStyled>
           Please select a tag for your note...
         </SelectLabelStyled>
-        <SelectTagStyled name="stage">
-          <option value="started">started</option>
-          <option value="advanced">advanced</option>
-          <option value="completed">completed</option>
+        <SelectTagStyled name="tag">
+          <option name="tag" value="started">
+            started
+          </option>
+          <option name="tag" value="advanced">
+            advanced
+          </option>
+          <option name="tag" value="completed">
+            completed
+          </option>
         </SelectTagStyled>
         <ButtonStyled onSubmit={handleSubmit}>Save note</ButtonStyled>
       </FormStyled>
