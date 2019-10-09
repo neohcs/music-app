@@ -5,11 +5,13 @@ import TagFilter from './TagFilter'
 import SearchBar from '../SearchBar'
 import Page from '../common/Page'
 import Header from '../common/Header'
+import Navigation from '../common/Navigation'
 
 export default function NotePage({ onSelectTag, notes, tags, selectedTag }) {
   return (
     <Page title={'NotePage'}>
       <Header></Header>
+      <Navigation></Navigation>
       <ScrollerStyled>
         <SearchBar></SearchBar>
         <TagFilter
@@ -19,7 +21,7 @@ export default function NotePage({ onSelectTag, notes, tags, selectedTag }) {
         />
         {notes.map(note => (
           <Note
-            key={note.title}
+            key={note._id}
             title={note.title}
             date={note.date}
             content={note.content.split('\n').map(line => {
@@ -35,11 +37,12 @@ export default function NotePage({ onSelectTag, notes, tags, selectedTag }) {
 
 const ScrollerStyled = styled.div`
   display: grid;
+  max-width: 100%;
   gap: 20px;
   overflow-y: auto;
   scroll-behavior: smooth;
-  padding: 20px;
-  margin-top: 50px;
+  overflow-x: hidden;
+  padding: 5px 20px;
   justify-items: center;
 `
 const LineBreakStyled = styled.p`
