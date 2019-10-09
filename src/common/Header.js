@@ -7,7 +7,11 @@ Header.propTypes = {
 }
 
 export default function Header() {
-  return <HeaderStyled>AUDIOPEN</HeaderStyled>
+  return (
+    <HeaderStyled>
+      SongPen
+    </HeaderStyled>
+  )
 }
 
 const HeaderStyled = styled.header`

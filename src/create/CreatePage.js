@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components/macro'
 import Page from '../common/Page'
 import Header from '../common/Header'
-import FilterButton from '../notes/FilterButton'
+import Navigation from '../app/Navigation'
 
 export default function CreatePage({ onSubmit }) {
   function handleSubmit(event) {
@@ -18,6 +18,7 @@ export default function CreatePage({ onSubmit }) {
   return (
     <Page title={'CreatePage'}>
       <Header></Header>
+      <Navigation></Navigation>
       <FormStyled onSubmit={handleSubmit}>
         <InputTitleStyled
           name="title"
@@ -53,7 +54,6 @@ const FormStyled = styled.form`
   overflow-y: auto;
   scroll-behavior: smooth;
   padding: 20px;
-  margin-top: 70px;
   justify-items: center;
 `
 

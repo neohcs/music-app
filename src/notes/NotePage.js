@@ -5,11 +5,13 @@ import TagFilter from './TagFilter'
 import SearchBar from '../SearchBar'
 import Page from '../common/Page'
 import Header from '../common/Header'
+import Navigation from '../app/Navigation'
 
 export default function NotePage({ onSelectTag, notes, tags, selectedTag }) {
   return (
     <Page title={'NotePage'}>
       <Header></Header>
+      <Navigation></Navigation>
       <ScrollerStyled>
         <SearchBar></SearchBar>
         <TagFilter
@@ -38,8 +40,7 @@ const ScrollerStyled = styled.div`
   gap: 20px;
   overflow-y: auto;
   scroll-behavior: smooth;
-  padding: 20px;
-  margin-top: 50px;
+  padding: 5px 20px;
   justify-items: center;
 `
 const LineBreakStyled = styled.p`

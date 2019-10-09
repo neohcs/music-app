@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import styled from 'styled-components'
+import styled from 'styled-components/macro'
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import NotePage from '../notes/NotePage'
 import CreatePage from '../create/CreatePage'
