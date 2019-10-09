@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components/macro'
 import { NavLink } from 'react-router-dom'
-import { ListOl } from 'styled-icons/fa-solid'
+import { ListUl } from 'styled-icons/fa-solid'
 import { FileAlt } from 'styled-icons/fa-regular'
 
 export default function Navigation() {
@@ -18,11 +18,10 @@ export default function Navigation() {
 }
 
 const NavigationStyled = styled.nav`
-  grid-row: 1;
   display: flex;
   justify-content: space-between;
   height: 50px;
-  margin-top: 65px;
+  padding: 30px;
 `
 
 const LinkStyled = styled(NavLink)`
@@ -36,16 +35,14 @@ const LinkStyled = styled(NavLink)`
   }
 `
 
-const ListIconStyled = styled(ListOl)`
+const ListIconStyled = styled(ListUl)`
   display: inline-block;
   justify-content: flex-start;
-  margin-left: 30px;
   height: 30px;
 `
 
 const CreateIconStyled = styled(FileAlt)`
   display: inline-block;
   justify-content: flex-end;
-  margin-right: 30px;
   height: 30px;
 `

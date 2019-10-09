@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components/macro'
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import NotePage from '../notes/NotePage'
 import CreatePage from '../create/CreatePage'
 import { getNotes, postNote } from '../notes/services'
@@ -37,29 +37,31 @@ export default function App() {
   return (
     <Router>
       <AppStyled>
-        <Route
-          path="/"
-          exact
-          render={() => (
-            <NotePage
-              tags={allNoteTags}
-              onSelectTag={selectTag}
-              notes={filteredNotes}
-              selectedTag={selectedTag}
-            ></NotePage>
-          )}
-        />
-        <Route
-          path="/create"
-          render={() => (
-            <CreatePage
-              tags={allNoteTags}
-              onSelectTag={selectTag}
-              selectedTag={selectedTag}
-              onSubmit={createNote}
-            ></CreatePage>
-          )}
-        />
+        <Switch>
+          <Route
+            path="/"
+            exact
+            render={() => (
+              <NotePage
+                tags={allNoteTags}
+                onSelectTag={selectTag}
+                notes={filteredNotes}
+                selectedTag={selectedTag}
+              ></NotePage>
+            )}
+          />
+          <Route
+            path="/create"
+            render={() => (
+              <CreatePage
+                tags={allNoteTags}
+                onSelectTag={selectTag}
+                selectedTag={selectedTag}
+                onSubmit={createNote}
+              ></CreatePage>
+            )}
+          />
+        </Switch>
       </AppStyled>
     </Router>
   )
@@ -67,7 +69,6 @@ export default function App() {
 
 const AppStyled = styled.div`
   display: grid;
-  grid-template-rows: auto 48px;
   position: fixed;
   left: 0;
   right: 0;

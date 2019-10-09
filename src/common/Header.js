@@ -20,7 +20,6 @@ const HeaderStyled = styled.header`
   height: 60px;
   letter-spacing: 3px;
   padding: 10px;
-  position: absolute;
   text-align: center;
   width: 100vw;
 `
