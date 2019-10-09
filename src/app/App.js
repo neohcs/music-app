@@ -12,15 +12,15 @@ export default function App() {
 
   console.log(noteList)
 
-  const allNoteTags = ['started', 'advanced', 'completed']
-  // const allNoteTags = Array.from(
-  //   noteList.reduce((prev, note) => {
-  //     prev.add(note.tag)
-  //     return prev
-  //   }, new Set())
-  // )
+  // const allNoteTags = ['started', 'advanced', 'completed']
+  const allNoteTags = Array.from(
+    noteList.reduce((prev, note) => {
+      prev.add(note.tag)
+      return prev
+    }, new Set())
+  )
 
-  // const filteredNotes = noteList.filter(note => note.tag.includes(selectedTag))
+  const filteredNotes = noteList.filter(note => note.tag.includes(selectedTag))
 
   function selectTag(clickedTag) {
     setSelectedTag(clickedTag)
@@ -38,7 +38,7 @@ export default function App() {
       <NotePage
         tags={allNoteTags}
         onSelectTag={selectTag}
-        notes={noteList}
+        notes={filteredNotes}
         selectedTag={selectedTag}
       ></NotePage>
       <CreatePage
