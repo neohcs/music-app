@@ -16,8 +16,7 @@ export default function CreatePage({ onSubmit }) {
   }
 
   return (
-    <>
-      <Page title={'CreatePage'}></Page>
+    <Page title={'CreatePage'}>
       <Header></Header>
       <FormStyled onSubmit={handleSubmit}>
         <InputTitleStyled
@@ -44,7 +43,7 @@ export default function CreatePage({ onSubmit }) {
         </SelectTagStyled>
         <ButtonStyled onSubmit={handleSubmit}>Save note</ButtonStyled>
       </FormStyled>
-    </>
+    </Page>
   )
 }
 
