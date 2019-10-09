@@ -23,8 +23,12 @@ export default function CreatePage({ onSubmit }) {
         <InputTitleStyled
           name="title"
           placeholder={'Insert title here...'}
+          maxLength="20"
+          // wordWrap="break-word"
+          required
         ></InputTitleStyled>
         <InputContentStyled
+          wordWrap="break-word"
           name="content"
           placeholder={'Express your creative genius here...'}
         ></InputContentStyled>
@@ -65,6 +69,8 @@ const InputTitleStyled = styled.input`
   padding: 10px;
   font-size: 18px;
   font-weight: bold;
+  word-wrap: break-word;
+  word-break: break-all;
   color: grey;
   box-shadow: 0 5px 10px #0002;
   :focus {
