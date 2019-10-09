@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styled from 'styled-components/macro'
 import Page from '../common/Page'
 import Header from '../common/Header'
-import Navigation from '../app/Navigation'
+import Navigation from '../common/Navigation'
 
 export default function CreatePage({ onSubmit }) {
   function handleSubmit(event) {
@@ -74,7 +74,7 @@ const InputTitleStyled = styled.input`
 
 const InputContentStyled = styled.textarea`
   width: 100%;
-  height: 200px;
+  height: 250px;
   border: 1px solid lightgrey;
   border-radius: 3px;
   padding: 10px;
@@ -118,13 +118,13 @@ const ButtonStyled = styled.button`
   width: 120px;
   display: inline-block;
   padding: 2px 15px;
-  background: #e4f2f0;
+  background: #ecf7f8;
   font-size: 18px;
   font-weight: bold;
   color: #54abbc;
   border-radius: 7px;
   border: none;
-  box-shadow: 0 3px 10px #0002;
+  box-shadow: 0 2px 5px #0002;
   :focus {
     box-shadow: 0 0 1px 3px rgba(70, 220, 252, 0.7);
   }

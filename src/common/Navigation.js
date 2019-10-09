@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom'
 import { ListOl } from 'styled-icons/fa-solid'
 import { FileAlt } from 'styled-icons/fa-regular'
 
-export default function Navigation({ active }) {
+export default function Navigation() {
   return (
     <NavigationStyled>
       <LinkStyled to="/" exact>
@@ -21,8 +21,8 @@ const NavigationStyled = styled.nav`
   grid-row: 1;
   display: flex;
   justify-content: space-between;
-  height: 40px;
-  margin-top: 70px;
+  height: 50px;
+  margin-top: 65px;
 `
 
 const LinkStyled = styled(NavLink)`
@@ -32,7 +32,7 @@ const LinkStyled = styled(NavLink)`
   justify-content: flex-end;
   align-items: center;
   &.active {
-    color: #54abbc;
+    color: #4db5bf;
   }
 `
 
@@ -42,6 +42,7 @@ const ListIconStyled = styled(ListOl)`
   margin-left: 30px;
   height: 30px;
 `
+
 const CreateIconStyled = styled(FileAlt)`
   display: inline-block;
   justify-content: flex-end;

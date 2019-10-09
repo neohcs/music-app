@@ -14,7 +14,6 @@ export default function App() {
 
   console.log(noteList)
 
-  // const allNoteTags = ['started', 'advanced', 'completed']
   const allNoteTags = Array.from(
     noteList.reduce((prev, note) => {
       prev.add(note.tag)

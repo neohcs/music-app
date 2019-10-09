@@ -49,8 +49,8 @@ const NoteStyled = styled.section`
   font-family: Lucida Grande, Lucida Sans Unicode, Lucida Sans, Geneva, Verdana,
     sans-serif;
   padding: 10px 20px 20px;
-  box-shadow: 0 10px 10px #0002;
-  background: #f4f4f4;
+  box-shadow: 0 5px 10px #0002;
+  background: #f8f8f8;
 `
 
 const DateStyled = styled.div`
