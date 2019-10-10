@@ -1,10 +1,11 @@
 import React from 'react'
 import styled from 'styled-components/macro'
+import PropTypes from 'prop-types'
 import Page from '../common/Page'
 import Header from '../common/Header'
 import Navigation from '../common/Navigation'
 
-NotePage.propTypes = {
+CreatePage.propTypes = {
   onSubmit: PropTypes.func
 }
 
