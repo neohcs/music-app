@@ -1,11 +1,19 @@
 import React from 'react'
 import styled from 'styled-components/macro'
+import PropTypes from 'prop-types'
 import Note from './Note'
 import TagFilter from './TagFilter'
 import SearchBar from '../SearchBar'
 import Page from '../common/Page'
 import Header from '../common/Header'
 import Navigation from '../common/Navigation'
+
+NotePage.propTypes = {
+  onSelectTag: PropTypes.func,
+  notes: PropTypes.array,
+  tags: PropTypes.string,
+  selectedTag: PropTypes.string
+}
 
 export default function NotePage({ onSelectTag, notes, tags, selectedTag }) {
   return (
