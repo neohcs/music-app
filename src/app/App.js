@@ -31,7 +31,7 @@ export default function App() {
   }
 
   function createNote(newNoteData) {
-    postNote(newNoteData).then(note => setNoteList([...noteList, note]))
+    postNote(newNoteData).then(note => setNoteList([note, ...noteList]))
   }
 
   return (

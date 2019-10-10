@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components/macro'
 
 Tag.propTypes = {
-  text: PropTypes.string
+  tag: PropTypes.string
 }
 
 export default function Tag({ tag }) {

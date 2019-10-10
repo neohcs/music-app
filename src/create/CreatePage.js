@@ -22,10 +22,14 @@ export default function CreatePage({ onSubmit }) {
       <FormStyled onSubmit={handleSubmit}>
         <InputTitleStyled
           name="title"
+          type="text"
           placeholder={'Insert title here...'}
+          maxLength="20"
+          required
         ></InputTitleStyled>
         <InputContentStyled
           name="content"
+          type="text"
           placeholder={'Express your creative genius here...'}
         ></InputContentStyled>
         <SelectLabelStyled>
@@ -42,7 +46,7 @@ export default function CreatePage({ onSubmit }) {
             completed
           </option>
         </SelectTagStyled>
-        <ButtonStyled onSubmit={handleSubmit}>Save note</ButtonStyled>
+        <ButtonStyled>Save note</ButtonStyled>
       </FormStyled>
     </Page>
   )
@@ -65,6 +69,8 @@ const InputTitleStyled = styled.input`
   padding: 10px;
   font-size: 18px;
   font-weight: bold;
+  word-wrap: break-word;
+  word-break: break-all;
   color: grey;
   box-shadow: 0 5px 10px #0002;
   :focus {
@@ -79,6 +85,7 @@ const InputContentStyled = styled.textarea`
   border-radius: 3px;
   padding: 10px;
   font-size: 16px;
+  word-wrap: break-word;
   color: grey;
   box-shadow: 0 5px 10px #0002;
   :focus {

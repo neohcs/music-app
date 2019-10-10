@@ -24,9 +24,11 @@ export default function NotePage({ onSelectTag, notes, tags, selectedTag }) {
             key={note._id}
             title={note.title}
             date={note.date}
-            content={note.content.split('\n').map(line => {
-              return <LineBreakStyled>{line}</LineBreakStyled>
-            })}
+            content={note.content
+              .split('\n')
+              .map(line =>
+                line === '' ? <br /> : <LineBreakStyled>{line}</LineBreakStyled>
+              )}
             tag={note.tag}
           />
         ))}
