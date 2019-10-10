@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components/macro'
+import { NavLink } from 'react-router-dom'
 import Page from '../common/Page'
 import Header from '../common/Header'
 import Navigation from '../common/Navigation'
@@ -22,14 +23,15 @@ export default function CreatePage({ onSubmit }) {
       <FormStyled onSubmit={handleSubmit}>
         <InputTitleStyled
           name="title"
+          type="text"
           placeholder={'Insert title here...'}
           maxLength="20"
           // wordWrap="break-word"
           required
         ></InputTitleStyled>
         <InputContentStyled
-          wordWrap="break-word"
           name="content"
+          type="text"
           placeholder={'Express your creative genius here...'}
         ></InputContentStyled>
         <SelectLabelStyled>
@@ -46,7 +48,7 @@ export default function CreatePage({ onSubmit }) {
             completed
           </option>
         </SelectTagStyled>
-        <ButtonStyled onSubmit={handleSubmit}>Save note</ButtonStyled>
+        <ButtonStyled>Save note</ButtonStyled>
       </FormStyled>
     </Page>
   )
@@ -85,6 +87,7 @@ const InputContentStyled = styled.textarea`
   border-radius: 3px;
   padding: 10px;
   font-size: 16px;
+  word-wrap: break-word;
   color: grey;
   box-shadow: 0 5px 10px #0002;
   :focus {
