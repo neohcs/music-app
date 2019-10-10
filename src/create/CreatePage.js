@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components/macro'
-import { NavLink } from 'react-router-dom'
 import Page from '../common/Page'
 import Header from '../common/Header'
 import Navigation from '../common/Navigation'
@@ -26,7 +25,6 @@ export default function CreatePage({ onSubmit }) {
           type="text"
           placeholder={'Insert title here...'}
           maxLength="20"
-          // wordWrap="break-word"
           required
         ></InputTitleStyled>
         <InputContentStyled
