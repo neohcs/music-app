@@ -7,6 +7,13 @@ import Page from '../common/Page'
 import Header from '../common/Header'
 import Navigation from '../common/Navigation'
 
+NotePage.propTypes = {
+  onSelectTag: PropTypes.func,
+  notes: PropTypes.array,
+  tags: PropTypes.string,
+  selectedTag: PropTypes.string
+}
+
 export default function NotePage({ onSelectTag, notes, tags, selectedTag }) {
   return (
     <Page title={'NotePage'}>

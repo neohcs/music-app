@@ -4,6 +4,10 @@ import Page from '../common/Page'
 import Header from '../common/Header'
 import Navigation from '../common/Navigation'
 
+NotePage.propTypes = {
+  onSubmit: PropTypes.func
+}
+
 export default function CreatePage({ onSubmit }) {
   function handleSubmit(event) {
     event.preventDefault()
