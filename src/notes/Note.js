@@ -35,6 +35,7 @@ export default function Note({ title, date, content, tag, recording }) {
             onClick={toggleExpandNote}
           ></NoteCollapseIconStyled>
           <NoteEditIconStyled></NoteEditIconStyled>
+          <PlayRecordingStyled></PlayRecordingStyled>
         </>
       ) : (
         <NoteViewIconStyled onClick={toggleExpandNote}></NoteViewIconStyled>
@@ -89,6 +90,12 @@ const RecordingIconStyled = styled(Notes)`
     color: #ffc187;
 `
 
+const PlayRecordingStyled = styled.div`
+  display: block;
+  height: 30px;
+  background-color: teal;
+`
+
 const NoteViewIconStyled = styled(ArrowSortedDown)`
   display: inline-block;
   position: absolute;
@@ -99,7 +106,7 @@ const NoteViewIconStyled = styled(ArrowSortedDown)`
 `
 
 const NoteCollapseIconStyled = styled(ArrowSortedUp)`
-  display: inline-block;
+  display: block;
   position: absolute;
   right: 10px;
   bottom: 5px;
