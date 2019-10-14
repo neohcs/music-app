@@ -21,11 +21,9 @@ export default function CreatePage({ onSubmit, date }) {
     const form = event.target // hier halte ich fest, wo das Event passiert: auf der form
     const formData = new FormData(form) // hier gebe ich der FormData diese form mit, damit aus ihren Daten Key-Value-Pairs erstellt werden
     const data = Object.fromEntries(formData) // hier werden mit der Object.fromEntries-Methode die Key-Value-Paare in ein Objekt umgewandelt
-    console.log(data)
     onSubmit(data) // hier wird onSubmit aufgerufen und das neue Objekt übergeben. Die Funktion wird der CreatePage in der App mit dem Argument createPage (Funktion) besetzt. Dort wird dann createPage ausgeführt
     form.reset() //dies leert die Felder der Form automatisch
     form.title.focus() // dies setzt den Fokus automatisch wieder ins Titel-Input-Feld
-    console.log(NoteDate)
   }
 
   return (
@@ -158,7 +156,4 @@ const ButtonStyled = styled.button`
   :focus {
     box-shadow: 0 0 1px 3px rgba(70, 220, 252, 0.7);
   }
-`
-const DateWrapperStyled = styled.span`
-  display: none;
 `

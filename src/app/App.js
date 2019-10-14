@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import styled from 'styled-components/macro'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import NotePage from '../notes/NotePage'
-import NoteDate from '../notes/NoteDate'
 import CreatePage from '../create/CreatePage'
 import { getNotes, postNote } from '../notes/services'
 
