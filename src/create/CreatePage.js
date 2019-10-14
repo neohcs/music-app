@@ -4,12 +4,18 @@ import PropTypes from 'prop-types'
 import Page from '../common/Page'
 import Header from '../common/Header'
 import Navigation from '../common/Navigation'
+import NoteDate from '../notes/NoteDate'
 
 CreatePage.propTypes = {
   onSubmit: PropTypes.func
 }
 
-export default function CreatePage({ onSubmit }) {
+export default function CreatePage({ onSubmit, date }) {
+  const currentDay = new Date().getDate()
+  const currentMonth = new Date().getMonth() + 1
+  const currentYear = new Date().getFullYear()
+  const currentDate = currentDay + '/' + currentMonth + '/' + currentYear
+
   function handleSubmit(event) {
     event.preventDefault()
     const form = event.target // hier halte ich fest, wo das Event passiert: auf der form
@@ -25,6 +31,7 @@ export default function CreatePage({ onSubmit }) {
       <Header></Header>
       <Navigation></Navigation>
       <FormStyled onSubmit={handleSubmit}>
+        <InputDateStyled name="date" value={currentDate}></InputDateStyled>
         <InputTitleStyled
           name="title"
           type="text"
@@ -64,6 +71,15 @@ const FormStyled = styled.form`
   scroll-behavior: smooth;
   padding: 20px;
   justify-items: center;
+`
+
+const InputDateStyled = styled.input`
+  height: 20px;
+  border: 1px solid lightgrey;
+  border-radius: 3px;
+  padding: 10px;
+  width: 95px;
+  color: lightgrey;
 `
 
 const InputTitleStyled = styled.input`

@@ -12,8 +12,6 @@ export default function App() {
     getNotes().then(setNoteList)
   }, [])
 
-  console.log(noteList)
-
   const allNoteTags = Array.from(
     noteList.reduce((prev, note) => {
       prev.add(note.tag)
@@ -42,12 +40,14 @@ export default function App() {
             path="/"
             exact
             render={() => (
-              <NotePage
-                tags={allNoteTags}
-                onSelectTag={selectTag}
-                notes={filteredNotes}
-                selectedTag={selectedTag}
-              ></NotePage>
+              <>
+                <NotePage
+                  tags={allNoteTags}
+                  onSelectTag={selectTag}
+                  notes={filteredNotes}
+                  selectedTag={selectedTag}
+                ></NotePage>
+              </>
             )}
           />
           <Route
