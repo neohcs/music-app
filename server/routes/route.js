@@ -3,7 +3,7 @@ const Note = require('../models/Note')
 
 router.get('/', (req, res) => {
   Note.find()
-    .sort({ date: -1 })
+    .sort({ date: 1 })
     .then(notes => res.json(notes))
     .catch(err => res.json(err))
 })

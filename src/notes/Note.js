@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { EditAlt } from 'styled-icons/boxicons-regular'
 import { ArrowSortedDown, ArrowSortedUp, Notes } from 'styled-icons/typicons'
+import { PlayCircle } from 'styled-icons/fa-regular'
 import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
 import Tag from './Tag'
@@ -23,23 +24,39 @@ export default function Note({ title, date, content, tag, recording }) {
       <DateStyled>{date}</DateStyled>
       <TitleStyled>{title}</TitleStyled>
       {isNoteExpanded ? (
-        <ContentStyled className={'expanded'}>{content}</ContentStyled>
+        <>
+          <ContentStyled className={'expanded'}>
+            {content}
+            <PlayBarStyled>
+              <PlayIconStyled></PlayIconStyled>
+            </PlayBarStyled>
+          </ContentStyled>
+          <NoteCollapseIconStyled
+            onClick={toggleExpandNote}
+          ></NoteCollapseIconStyled>
+          <NoteEditIconStyled></NoteEditIconStyled>
+        </>
       ) : (
-        <ContentStyled>{content}</ContentStyled>
+        <>
+          <ContentStyled>{content}</ContentStyled>
+          <NoteViewIconStyled onClick={toggleExpandNote}></NoteViewIconStyled>
+        </>
       )}
       <Tag tag={tag}></Tag>
       {recording ? <RecordingIconStyled></RecordingIconStyled> : false}
-      {isNoteExpanded ? (
+      {/* {isNoteExpanded ? (
         <>
           <NoteCollapseIconStyled
             onClick={toggleExpandNote}
           ></NoteCollapseIconStyled>
           <NoteEditIconStyled></NoteEditIconStyled>
-          <PlayRecordingStyled></PlayRecordingStyled>
+          <PlayBarStyled>
+            <PlayIconStyled></PlayIconStyled>
+          </PlayBarStyled>
         </>
       ) : (
         <NoteViewIconStyled onClick={toggleExpandNote}></NoteViewIconStyled>
-      )}
+      )} */}
     </NoteStyled>
   )
 }
@@ -84,16 +101,26 @@ const ContentStyled = styled.p`
   }
 `
 const RecordingIconStyled = styled(Notes)`
-    display: inline-block;
-    fill: #54abbc;
-    height: 30px;
-    color: #ffc187;
+  display: inline-block;
+  fill: #54abbc;
+  height: 30px;
+  color: #ffc187;
 `
 
-const PlayRecordingStyled = styled.div`
-  display: block;
+const PlayBarStyled = styled.div`
+  margin-top: 20px;
+  position: relative;
   height: 30px;
-  background-color: teal;
+  padding: 4px;
+  background-color: white;
+  border-radius: 7px;
+  border: 1px solid lightgrey;
+`
+
+const PlayIconStyled = styled(PlayCircle)`
+  position: absolute;
+  height: 20px;
+  color: #ffc187;
 `
 
 const NoteViewIconStyled = styled(ArrowSortedDown)`
