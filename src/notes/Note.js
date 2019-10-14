@@ -27,9 +27,13 @@ export default function Note({ title, date, content, tag, recording }) {
         <>
           <ContentStyled className={'expanded'}>
             {content}
-            <PlayBarStyled>
-              <PlayIconStyled></PlayIconStyled>
-            </PlayBarStyled>
+            {recording ? (
+              <PlayBarStyled>
+                <PlayIconStyled></PlayIconStyled>
+              </PlayBarStyled>
+            ) : (
+              false
+            )}
           </ContentStyled>
           <NoteCollapseIconStyled
             onClick={toggleExpandNote}
