@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { EditAlt } from 'styled-icons/boxicons-regular'
-import { ArrowSortedDown, ArrowSortedUp } from 'styled-icons/typicons'
+import { ArrowSortedDown, ArrowSortedUp, Notes } from 'styled-icons/typicons'
 import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
 import Tag from './Tag'
@@ -11,7 +11,7 @@ Note.propTypes = {
   content: PropTypes.string
 }
 
-export default function Note({ title, date, content, tag }) {
+export default function Note({ title, date, content, tag, recording }) {
   const [isNoteExpanded, setIsNoteExpanded] = useState(false)
 
   function toggleExpandNote() {
@@ -28,6 +28,7 @@ export default function Note({ title, date, content, tag }) {
         <ContentStyled>{content}</ContentStyled>
       )}
       <Tag tag={tag}></Tag>
+      {recording ? <RecordingIconStyled></RecordingIconStyled> : false}
       {isNoteExpanded ? (
         <>
           <NoteCollapseIconStyled
@@ -80,6 +81,12 @@ const ContentStyled = styled.p`
     display: block;
     height: auto;
   }
+`
+const RecordingIconStyled = styled(Notes)`
+    display: inline-block;
+    fill: #54abbc;
+    height: 30px;
+    color: #ffc187;
 `
 
 const NoteViewIconStyled = styled(ArrowSortedDown)`

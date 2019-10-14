@@ -8,8 +8,12 @@ router.get('/', (req, res) => {
 })
 
 router.get('/:id', (req, res) => {
-  Note.find({ id: req.params.id })
-    .then(notes => res.json(notes))
+ //   .catch(err => res.json(err))
+  console.log(req.params.id)
+  Note.findOne({ _id: req.params.id })
+    .then(notes => {
+      console.log('NOTES', notes)
+      res.json(notes)})
     .catch(err => res.json(err))
 })
 

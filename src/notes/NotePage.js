@@ -12,7 +12,8 @@ NotePage.propTypes = {
   onSelectTag: PropTypes.func,
   notes: PropTypes.array,
   tags: PropTypes.array,
-  selectedTag: PropTypes.string
+  selectedTag: PropTypes.string,
+  isRecordingIncluded: PropTypes.bool
 }
 
 export default function NotePage({ onSelectTag, notes, tags, selectedTag }) {
@@ -38,6 +39,7 @@ export default function NotePage({ onSelectTag, notes, tags, selectedTag }) {
                 line === '' ? <br /> : <LineBreakStyled>{line}</LineBreakStyled>
               )}
             tag={note.tag}
+            recording={note.recording}
           />
         ))}
       </ScrollerStyled>

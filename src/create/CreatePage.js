@@ -4,7 +4,6 @@ import PropTypes from 'prop-types'
 import Page from '../common/Page'
 import Header from '../common/Header'
 import Navigation from '../common/Navigation'
-import NoteDate from '../notes/NoteDate'
 
 CreatePage.propTypes = {
   onSubmit: PropTypes.func
@@ -44,6 +43,11 @@ export default function CreatePage({ onSubmit, date }) {
           type="text"
           placeholder={'Express your creative genius here...'}
         ></InputContentStyled>
+        <InputRecordStyled
+          name="recording"
+          type="text"
+          placeholder={'Insert URL to your song here...'}
+        ></InputRecordStyled>
         <SelectLabelStyled>
           Please select a tag for your note...
         </SelectLabelStyled>
@@ -107,6 +111,23 @@ const InputContentStyled = styled.textarea`
   padding: 10px;
   font-size: 16px;
   word-wrap: break-word;
+  color: grey;
+  box-shadow: 0 5px 10px #0002;
+  :focus {
+    box-shadow: 0 0 1px 3px rgba(70, 220, 252, 0.7);
+  }
+`
+
+const InputRecordStyled = styled.input`
+  height: 30px;
+  width: 100%;
+  border: 1px solid lightgrey;
+  border-radius: 3px;
+  padding: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  word-wrap: break-word;
+  word-break: break-all;
   color: grey;
   box-shadow: 0 5px 10px #0002;
   :focus {
