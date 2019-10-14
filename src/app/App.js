@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import styled from 'styled-components/macro'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import NotePage from '../notes/NotePage'
+import NoteDate from '../notes/NoteDate'
 import CreatePage from '../create/CreatePage'
 import { getNotes, postNote } from '../notes/services'
 
@@ -11,8 +12,6 @@ export default function App() {
   useEffect(() => {
     getNotes().then(setNoteList)
   }, [])
-
-  console.log(noteList)
 
   const allNoteTags = Array.from(
     noteList.reduce((prev, note) => {
@@ -42,12 +41,14 @@ export default function App() {
             path="/"
             exact
             render={() => (
-              <NotePage
-                tags={allNoteTags}
-                onSelectTag={selectTag}
-                notes={filteredNotes}
-                selectedTag={selectedTag}
-              ></NotePage>
+              <>
+                <NotePage
+                  tags={allNoteTags}
+                  onSelectTag={selectTag}
+                  notes={filteredNotes}
+                  selectedTag={selectedTag}
+                ></NotePage>
+              </>
             )}
           />
           <Route

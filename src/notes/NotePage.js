@@ -11,7 +11,7 @@ import Navigation from '../common/Navigation'
 NotePage.propTypes = {
   onSelectTag: PropTypes.func,
   notes: PropTypes.array,
-  tags: PropTypes.string,
+  tags: PropTypes.array,
   selectedTag: PropTypes.string
 }
 

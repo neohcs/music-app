@@ -4,6 +4,7 @@ import { ArrowSortedDown, ArrowSortedUp } from 'styled-icons/typicons'
 import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
 import Tag from './Tag'
+// import NoteDate from './NoteDate'
 
 Note.propTypes = {
   title: PropTypes.string,
