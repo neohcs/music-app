@@ -67,18 +67,17 @@ export default function Note({ title, date, content, tag, recording }) {
 
 const NoteStyled = styled.section`
   position: relative;
+  box-shadow: 0 5px 10px #0002;
   width: 90vw;
-  box-sizing: border-box;
+  padding: 10px 20px 20px;
+  background: #f8f8f8;
   font-family: Lucida Grande, Lucida Sans Unicode, Lucida Sans, Geneva, Verdana,
     sans-serif;
-  padding: 10px 20px 20px;
-  box-shadow: 0 5px 10px #0002;
-  background: #f8f8f8;
 `
 
 const DateStyled = styled.div`
-  display: block;
   float: right;
+  display: block;
   margin-right: -10px;
   font-size: 12px;
   color: #3997a0;
@@ -93,8 +92,8 @@ const ContentStyled = styled.p`
   display: -webkit-box;
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
-  height: 60px;
   overflow: hidden;
+  height: 60px;
   font-size: 16px;
   color: #54abbc;
   word-wrap: break-word;
@@ -106,19 +105,18 @@ const ContentStyled = styled.p`
 `
 const RecordingIconStyled = styled(Notes)`
   display: inline-block;
-  fill: #54abbc;
   height: 30px;
-  color: #ffc187;
+  fill: #54abbc;
 `
 
 const PlayBarStyled = styled.div`
-  margin-top: 20px;
   position: relative;
+  margin-top: 20px;
+  border: 1px solid lightgrey;
+  border-radius: 7px;
   height: 30px;
   padding: 4px;
-  background-color: white;
-  border-radius: 7px;
-  border: 1px solid lightgrey;
+  background: white;
 `
 
 const PlayIconStyled = styled(PlayCircle)`
@@ -128,28 +126,28 @@ const PlayIconStyled = styled(PlayCircle)`
 `
 
 const NoteViewIconStyled = styled(ArrowSortedDown)`
-  display: inline-block;
   position: absolute;
   right: 10px;
   bottom: 5px;
+  display: inline-block;
   height: 50px;
   color: #ffc187;
 `
 
 const NoteCollapseIconStyled = styled(ArrowSortedUp)`
-  display: block;
   position: absolute;
   right: 10px;
   bottom: 5px;
+  display: block;
   height: 50px;
   color: #ffc187;
 `
 
 const NoteEditIconStyled = styled(EditAlt)`
-  display: inline-block;
   position: absolute;
   top: 30px;
   right: 10px;
+  display: inline-block;
   height: 30px;
   color: #ffc187;
 `

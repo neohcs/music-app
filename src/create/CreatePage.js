@@ -9,7 +9,7 @@ CreatePage.propTypes = {
   onSubmit: PropTypes.func
 }
 
-export default function CreatePage({ onSubmit, date }) {
+export default function CreatePage({ onSubmit }) {
   const currentDay = new Date().getDate()
   const currentMonth = new Date().getMonth() + 1
   const currentYear = new Date().getFullYear()
@@ -71,109 +71,109 @@ export default function CreatePage({ onSubmit, date }) {
 const FormStyled = styled.form`
   display: grid;
   gap: 20px;
+  justify-items: center;
   overflow-y: auto;
   scroll-behavior: smooth;
   padding: 20px;
-  justify-items: center;
 `
 
 const InputDateStyled = styled.input`
-  height: 20px;
   border: 1px solid lightgrey;
   border-radius: 3px;
-  padding: 10px;
   width: 95px;
+  height: 20px;
+  padding: 10px;
   color: lightgrey;
 `
 
 const InputTitleStyled = styled.input`
-  height: 30px;
-  width: 100%;
+  box-shadow: 0 5px 10px #0002;
   border: 1px solid lightgrey;
   border-radius: 3px;
+  width: 100%;
+  height: 30px;
   padding: 10px;
+  word-break: break-all;
+  word-wrap: break-word;
   font-size: 18px;
   font-weight: bold;
-  word-wrap: break-word;
-  word-break: break-all;
   color: grey;
-  box-shadow: 0 5px 10px #0002;
   :focus {
     box-shadow: 0 0 1px 3px rgba(70, 220, 252, 0.7);
   }
 `
 
 const InputContentStyled = styled.textarea`
-  width: 100%;
-  height: 250px;
+  box-shadow: 0 5px 10px #0002;
   border: 1px solid lightgrey;
   border-radius: 3px;
+  width: 100%;
+  height: 250px;
   padding: 10px;
-  font-size: 16px;
   word-wrap: break-word;
+  font-size: 16px;
   color: grey;
-  box-shadow: 0 5px 10px #0002;
   :focus {
     box-shadow: 0 0 1px 3px rgba(70, 220, 252, 0.7);
   }
 `
 
 const InputRecordStyled = styled.input`
-  height: 30px;
-  width: 100%;
+  box-shadow: 0 5px 10px #0002;
   border: 1px solid lightgrey;
   border-radius: 3px;
+  width: 100%;
+  height: 30px;
   padding: 10px;
+  word-break: break-all;
+  word-wrap: break-word;
   font-size: 18px;
   font-weight: bold;
-  word-wrap: break-word;
-  word-break: break-all;
   color: grey;
-  box-shadow: 0 5px 10px #0002;
   :focus {
     box-shadow: 0 0 1px 3px rgba(70, 220, 252, 0.7);
   }
 `
 
 const SelectLabelStyled = styled.label`
-  font-size: 14px;
-  padding-left: 10px;
-  color: grey;
+  justify-self: left;
   opacity: 0.7;
   height: 10px;
-  justify-self: left;
+  padding-left: 10px;
+  font-size: 14px;
+  color: grey;
 `
 
 const SelectTagStyled = styled.select`
   display: block;
+  opacity: 0.7;
+  appearance: none;
+  box-shadow: 0 1px 0 0.5px rgba(0, 0, 0, 0.04);
+  border: 1px solid lightgrey;
+  border-radius: 7px;
+  width: 100%;
+  line-height: 0.8;
+  padding: 10px;
   font-size: 16px;
   font-weight: bold;
   color: grey;
-  opacity: 0.7;
-  line-height: 1.3;
-  padding: 10px;
-  width: 100%;
-  border: 1px solid lightgrey;
-  box-shadow: 0 1px 0 0.5px rgba(0, 0, 0, 0.04);
-  border-radius: 7px;
-  appearance: none;
   :focus {
     box-shadow: 0 0 1px 3px rgba(70, 220, 252, 0.7);
   }
 `
 
 const ButtonStyled = styled.button`
-  height: 30px;
-  width: 120px;
   display: inline-block;
+  box-shadow: 0 2px 5px #0002;
+  border: none;
+  border-radius: 7px;
+  width: 120px;
+  height: 30px;
   padding: 2px 15px;
   background: #ecf7f8;
   font-size: 18px;
   font-weight: bold;
   color: #54abbc;
-  border-radius: 7px;
-  border: none;
-  box-shadow: 0 2px 5px #0002;
   :focus {
     box-shadow: 0 0 1px 3px rgba(70, 220, 252, 0.7);
   }

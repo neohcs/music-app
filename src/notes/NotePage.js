@@ -49,13 +49,13 @@ export default function NotePage({ onSelectTag, notes, tags, selectedTag }) {
 
 const ScrollerStyled = styled.div`
   display: grid;
-  max-width: 100%;
   gap: 20px;
+  justify-items: center;
+  overflow-x: hidden;
   overflow-y: auto;
   scroll-behavior: smooth;
-  overflow-x: hidden;
+  max-width: 100%;
   padding: 5px 20px;
-  justify-items: center;
 `
 const LineBreakStyled = styled.p`
   margin: 0px;
