@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { EditAlt } from 'styled-icons/boxicons-regular'
+import { EditAlt, Trash } from 'styled-icons/boxicons-regular'
 import { ArrowSortedDown, ArrowSortedUp, Notes } from 'styled-icons/typicons'
 import { PlayCircle } from 'styled-icons/fa-regular'
 import styled from 'styled-components/macro'
@@ -39,6 +39,7 @@ export default function Note({ title, date, content, tag, recording }) {
             onClick={toggleExpandNote}
           ></NoteCollapseIconStyled>
           <NoteEditIconStyled></NoteEditIconStyled>
+          <NoteDeleteIconStyled></NoteDeleteIconStyled>
         </>
       ) : (
         <>
@@ -133,6 +134,14 @@ const NoteCollapseIconStyled = styled(ArrowSortedUp)`
 const NoteEditIconStyled = styled(EditAlt)`
   position: absolute;
   top: 30px;
+  right: 15px;
+  display: inline-block;
+  height: 25px;
+  color: #ffc187;
+`
+const NoteDeleteIconStyled = styled(Trash)`
+  position: absolute;
+  top: 60px;
   right: 15px;
   display: inline-block;
   height: 25px;

@@ -32,6 +32,7 @@ export default function CreatePage({ onSubmit }) {
       <FormStyled onSubmit={handleSubmit}>
         <InputDateStyled name="date" value={currentDate}></InputDateStyled>
         <InputTitleStyled
+          autoFocus
           name="title"
           type="text"
           placeholder={'Insert title here...'}
@@ -62,7 +63,13 @@ export default function CreatePage({ onSubmit }) {
             completed
           </option>
         </SelectTagStyled>
-        <ButtonStyled>Save note</ButtonStyled>
+        <ButtonStyled
+          onClick={() => {
+            window.location = 'http://localhost:3000/'
+          }}
+        >
+          Save note
+        </ButtonStyled>
       </FormStyled>
     </Page>
   )
@@ -98,9 +105,6 @@ const InputTitleStyled = styled.input`
   font-size: 18px;
   font-weight: bold;
   color: grey;
-  :focus {
-    box-shadow: 0 0 1px 3px rgba(70, 220, 252, 0.7);
-  }
 `
 
 const InputContentStyled = styled.textarea`
@@ -113,9 +117,6 @@ const InputContentStyled = styled.textarea`
   word-wrap: break-word;
   font-size: 16px;
   color: grey;
-  :focus {
-    box-shadow: 0 0 1px 3px rgba(70, 220, 252, 0.7);
-  }
 `
 
 const InputRecordStyled = styled.input`
@@ -130,9 +131,6 @@ const InputRecordStyled = styled.input`
   font-size: 18px;
   font-weight: bold;
   color: grey;
-  :focus {
-    box-shadow: 0 0 1px 3px rgba(70, 220, 252, 0.7);
-  }
 `
 
 const SelectLabelStyled = styled.label`
@@ -157,9 +155,6 @@ const SelectTagStyled = styled.select`
   font-size: 16px;
   font-weight: bold;
   color: grey;
-  :focus {
-    box-shadow: 0 0 1px 3px rgba(70, 220, 252, 0.7);
-  }
 `
 
 const ButtonStyled = styled.button`
@@ -174,7 +169,4 @@ const ButtonStyled = styled.button`
   font-size: 18px;
   font-weight: bold;
   color: #54abbc;
-  :focus {
-    box-shadow: 0 0 1px 3px rgba(70, 220, 252, 0.7);
-  }
 `
