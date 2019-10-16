@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { NavLink } from 'react-router-dom'
 import { EditAlt, Trash } from 'styled-icons/boxicons-regular'
 import { ArrowSortedDown, ArrowSortedUp, Notes } from 'styled-icons/typicons'
 import { PlayCircle } from 'styled-icons/fa-regular'
@@ -7,12 +8,15 @@ import PropTypes from 'prop-types'
 import Tag from './Tag'
 
 Note.propTypes = {
-  title: PropTypes.string,
+  title: PropTypes.string.isRequired,
   date: PropTypes.string, //update this to dynamic date
-  content: PropTypes.string
+  content: PropTypes.string,
+  tag: PropTypes.string,
+  recording: PropTypes.string //or array? -> arrayOf(PropTypes.string)
+  // id, too?
 }
 
-export default function Note({ title, date, content, tag, recording }) {
+export default function Note({ title, date, content, tag, recording, _id }) {
   const [isNoteExpanded, setIsNoteExpanded] = useState(false)
 
   function toggleExpandNote() {
@@ -27,18 +31,30 @@ export default function Note({ title, date, content, tag, recording }) {
         <>
           <ContentStyled className={'expanded'}>
             {content}
-            {recording ? (
+            {recording && (
               <PlayBarStyled>
                 <PlayIconStyled></PlayIconStyled>
               </PlayBarStyled>
-            ) : (
-              false
             )}
           </ContentStyled>
           <NoteCollapseIconStyled
             onClick={toggleExpandNote}
           ></NoteCollapseIconStyled>
-          <NoteEditIconStyled></NoteEditIconStyled>
+          <LinkStyled
+            to={{
+              pathname: '/edit',
+              editNoteData: {
+                date,
+                title,
+                content,
+                recording,
+                tag,
+                id: _id
+              }
+            }}
+          >
+            <NoteEditIconStyled />
+          </LinkStyled>
           <NoteDeleteIconStyled></NoteDeleteIconStyled>
         </>
       ) : (
@@ -48,7 +64,7 @@ export default function Note({ title, date, content, tag, recording }) {
         </>
       )}
       <Tag tag={tag}></Tag>
-      {recording ? <RecordingIconStyled></RecordingIconStyled> : false}
+      {recording && <RecordingIconStyled></RecordingIconStyled>}
     </NoteStyled>
   )
 }
@@ -131,18 +147,30 @@ const NoteCollapseIconStyled = styled(ArrowSortedUp)`
   color: #ffc187;
 `
 
+const LinkStyled = styled(NavLink)`
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  text-decoration: none;
+  color: #ffc187;
+  &.active {
+    color: #4db5bf;
+  }
+`
+
 const NoteEditIconStyled = styled(EditAlt)`
   position: absolute;
   top: 30px;
-  right: 15px;
+  right: 50px;
   display: inline-block;
   height: 25px;
   color: #ffc187;
 `
+
 const NoteDeleteIconStyled = styled(Trash)`
   position: absolute;
-  top: 60px;
-  right: 15px;
+  top: 30px;
+  right: 10px;
   display: inline-block;
   height: 25px;
   color: #ffc187;

@@ -1,15 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
 import Page from '../common/Page'
 import Header from '../common/Header'
 import Navigation from '../app/Navigation'
 
-CreatePage.propTypes = {
+EditPage.propTypes = {
   onSubmit: PropTypes.func
 }
 
-export default function CreatePage({ onSubmit }) {
+export default function EditPage({ onSubmit, editNoteData }) {
   const currentDay = new Date().getDate()
   const currentMonth = new Date().getMonth() + 1
   const currentYear = new Date().getFullYear()
@@ -27,6 +27,13 @@ export default function CreatePage({ onSubmit }) {
     ':' +
     currentMinutes
 
+  const [changedTitle, setChangedTitle] = useState(editNoteData.title)
+  const [changedContent, setChangedContent] = useState(editNoteData.content)
+  const [changedLabel, setChangedLabel] = useState(editNoteData.label)
+  const [changedRecording, setChangedRecording] = useState([
+    editNoteData.recording
+  ])
+
   function handleSubmit(event) {
     event.preventDefault()
     const form = event.target // hier halte ich fest, wo das Event passiert: auf der form
@@ -35,34 +42,43 @@ export default function CreatePage({ onSubmit }) {
     onSubmit(data) // hier wird onSubmit aufgerufen und das neue Objekt übergeben. Die Funktion wird der CreatePage in der App mit dem Argument createPage (Funktion) besetzt. Dort wird dann createPage ausgeführt
     //   form.reset() //dies leert die Felder der Form automatisch
     //   form.title.focus() // dies setzt den Fokus automatisch wieder ins Titel-Input-Feld
-    // }
+    //
   }
 
   return (
-    <Page title={'CreatePage'}>
+    <Page title={'EditPage'}>
       <Header></Header>
       <Navigation></Navigation>
       <FormStyled onSubmit={handleSubmit}>
         <InputDateStyled name="date" value={currentDate}></InputDateStyled>
         <InputTitleStyled
-          autoFocus
           name="title"
-          placeholder={'Insert title here...'}
+          value={changedTitle}
+          onChange={event => setChangedTitle(event.target.value)}
           maxLength="20"
           required
+          autoFocus
         ></InputTitleStyled>
         <InputContentStyled
           name="content"
-          placeholder={'Express your creative genius here...'}
+          value={changedContent}
+          onChange={event => setChangedContent(event.target.value)}
         ></InputContentStyled>
         <InputRecordStyled
           name="recording"
-          placeholder={'Insert URL to your song here...'}
+          value={changedRecording}
+          onChange={event =>
+            setChangedRecording([editNoteData.recording, event.target.value])
+          }
         ></InputRecordStyled>
         <SelectLabelStyled>
           Please select a tag for your note...
         </SelectLabelStyled>
-        <SelectTagStyled name="tag">
+        <SelectTagStyled
+          name="tag"
+          value={changedLabel}
+          onChange={event => setChangedLabel(event.target.value)}
+        >
           <option name="tag" value="started">
             started
           </option>
@@ -78,7 +94,14 @@ export default function CreatePage({ onSubmit }) {
             window.location = 'http://localhost:3000/'
           }}
         >
-          Save note
+          Save changes
+        </ButtonStyled>
+        <ButtonStyled
+          onClick={() => {
+            window.location = 'http://localhost:3000/'
+          }}
+        >
+          Abort
         </ButtonStyled>
       </FormStyled>
     </Page>
@@ -97,7 +120,7 @@ const FormStyled = styled.form`
 const InputDateStyled = styled.input`
   border: 1px solid lightgrey;
   border-radius: 3px;
-  width: 125px;
+  width: 95px;
   height: 20px;
   padding: 10px;
   color: lightgrey;
