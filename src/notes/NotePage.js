@@ -6,7 +6,7 @@ import TagFilter from './TagFilter'
 import SearchBar from '../SearchBar'
 import Page from '../common/Page'
 import Header from '../common/Header'
-import Navigation from '../common/Navigation'
+import Navigation from '../app/Navigation'
 
 NotePage.propTypes = {
   onSelectTag: PropTypes.func,

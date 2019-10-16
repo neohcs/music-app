@@ -48,19 +48,6 @@ export default function Note({ title, date, content, tag, recording }) {
       )}
       <Tag tag={tag}></Tag>
       {recording ? <RecordingIconStyled></RecordingIconStyled> : false}
-      {/* {isNoteExpanded ? (
-        <>
-          <NoteCollapseIconStyled
-            onClick={toggleExpandNote}
-          ></NoteCollapseIconStyled>
-          <NoteEditIconStyled></NoteEditIconStyled>
-          <PlayBarStyled>
-            <PlayIconStyled></PlayIconStyled>
-          </PlayBarStyled>
-        </>
-      ) : (
-        <NoteViewIconStyled onClick={toggleExpandNote}></NoteViewIconStyled>
-      )} */}
     </NoteStyled>
   )
 }
@@ -105,7 +92,7 @@ const ContentStyled = styled.p`
 `
 const RecordingIconStyled = styled(Notes)`
   display: inline-block;
-  height: 30px;
+  height: 25px;
   fill: #54abbc;
 `
 
@@ -146,8 +133,8 @@ const NoteCollapseIconStyled = styled(ArrowSortedUp)`
 const NoteEditIconStyled = styled(EditAlt)`
   position: absolute;
   top: 30px;
-  right: 10px;
+  right: 15px;
   display: inline-block;
-  height: 30px;
+  height: 25px;
   color: #ffc187;
 `
